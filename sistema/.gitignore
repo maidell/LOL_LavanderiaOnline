@@ -40,3 +40,29 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# ignorar arquivos de configuração
+*.config.js
+*.config.ts
+*.config.json
+*.config.yaml
+*.config.yml
+*.config.xml
+*.config.env
+*.config.env.example
+*.config.env.local
+*.config.env.test
+*.config.env.prod
+*.config.env.dev
+*.config.env.development
+*.config.env.staging
+
+# ignorar arquivos angular de configuração
+angular.json
+tsconfig.json
+tsconfig.app.json
+tsconfig.spec.json
+tslint.json
+karma.conf.js
+*.js.map
+*.js
