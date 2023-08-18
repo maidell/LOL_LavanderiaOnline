@@ -116,6 +116,7 @@ img{
 
 .botoes {
   display: flex;
+  justify-content: space-between;
 }
 
 a {
