@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AutocadastroComponent } from './autocadastro/autocadastro.component';
-import { PedidosComponent } from './pedidos/pedidos.component'
+import { NovoPedidoComponent } from './novoPedido/novoPedido.component'
 
 const routes: Routes = [
-  { path: 'pedidos',component: PedidosComponent},
+  { path: 'novopedido',component: NovoPedidoComponent},
 ];
 
 @NgModule({
