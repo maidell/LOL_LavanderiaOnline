@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AutocadastroComponent } from './autocadastro/autocadastro.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { NovoPedidoComponent } from './novoPedido/novoPedido.component'
+import { NovoPedidoComponent } from './novoPedido/novoPedido.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full'},
