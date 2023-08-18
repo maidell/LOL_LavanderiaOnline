@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.order-form {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    flex: 1;
+}
+
+.clothes-list {
+    list-style: none;
+    padding: 0;
+}
+
+.clothes-list li {
+    margin: 10px 0;
+}
+
+.clothes-checkbox {
+    margin-right: 5px;
+}
+
+.total {
+    margin-top: 20px;
+    text-align: left;
+}
+
+#submit-button {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#submit-button:hover {
+    background-color: #555;
+}
+
+
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: #333;
+    color: white;
+    width: 100%;
+    flex-shrink: 0;
+}
