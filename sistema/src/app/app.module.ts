@@ -18,6 +18,7 @@ import { FormsModule } from '@angular/forms';
     AutocadastroComponent,
     NovoPedidoComponent
   ],
+
   imports: [
     RouterModule.forRoot([
     { path: '', redirectTo: '/login', pathMatch: 'full'},
