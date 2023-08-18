@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido Online</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Novo Pedido</h1>
+    </header>
+    <section class="order-form">
+        <h2>Selecione as Roupas:</h2>
+        <ul class="clothes-list">
+            <li *ngFor="let clothing of clothesList">
+                <input type="checkbox" id="{{ clothing.name }}" class="clothes-checkbox" [(ngModel)]="clothing.checked">
+                <label for="{{ clothing.name }}">{{ clothing.name }} - R${{ clothing.price }}</label>
+            </li>
+        </ul>
+        <div class="total">
+            <p>Total Orçamento: <span>R${{ calculateTotal().toFixed(2) }}</span></p>
+        </div>
+        <button id="submit-button" (click)="onSubmit()">Enviar Pedido</button>
+    </section>
+    <footer class="footer text-center">2023 © LOL - Lavanderia Online</footer>
+
+
+
+</body>
+
+</html>

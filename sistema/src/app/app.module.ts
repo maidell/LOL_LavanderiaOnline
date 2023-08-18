@@ -7,20 +7,25 @@ import { AppComponent } from './app.component';
 import { AutocadastroComponent } from './autocadastro/autocadastro.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
+import { NovoPedidoComponent } from './novoPedido/novoPedido.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    AutocadastroComponent
+    AutocadastroComponent,
+    NovoPedidoComponent
   ],
+
   imports: [
     BrowserModule,
     RouterModule.forRoot([
     { path: '', redirectTo: '/login', pathMatch: 'full'},
     { path: 'login',component: LoginComponent},
-    { path: 'autocadastro', component: AutocadastroComponent}
+    { path: 'autocadastro', component: AutocadastroComponent},
+    { path: 'novoPedido', component: NovoPedidoComponent}
     ]),
     AppRoutingModule
   ],
