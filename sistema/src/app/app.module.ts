@@ -10,11 +10,16 @@ import { LoginComponent } from './login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
-    AutocadastroComponent,
-    LoginComponent
+    LoginComponent,
+    AutocadastroComponent
   ],
   imports: [
     BrowserModule,
+    RouterModule.forRoot([
+    { path: '', redirectTo: '/login', pathMatch: 'full'},
+    { path: 'login',component: LoginComponent},
+    { path: 'autocadastro', component: AutocadastroComponent}
+    ]),
     AppRoutingModule
   ],
   providers: [],
