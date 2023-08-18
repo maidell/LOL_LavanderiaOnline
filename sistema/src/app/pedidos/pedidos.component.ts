@@ -8,9 +8,13 @@ import { Component } from '@angular/core';
 export class PedidosComponent {
   clothesList = [
     { name: 'Camisa', price: 20, checked: false },
-    { name: 'Calça', price: 25, checked: false },
-    { name: 'Jaqueta', price: 40, checked: false }
-    // Adicione mais roupas aqui
+    { name: 'Calça', price: 20, checked: false },
+    { name: 'Calça Jeans', price: 25, checked: false },
+    { name: 'Jaqueta', price: 40, checked: false },
+    { name: 'Meia', price: 5, checked: false },
+    { name: 'Cueca', price: 5, checked: false },
+    { name: 'Bermuda', price: 15, checked: false },
+    // Adicionar mais roupas aqui
   ];
 
   calculateTotal(): number {
