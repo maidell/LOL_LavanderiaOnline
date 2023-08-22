@@ -13,18 +13,25 @@
         <h1>Novo Pedido</h1>
     </header>
     <section class="order-form">
-        <h2>Selecione as Roupas:</h2>
-        <ul class="clothes-list">
-            <li *ngFor="let clothing of clothesList">
-                <input type="checkbox" id="{{ clothing.name }}" class="clothes-checkbox" [(ngModel)]="clothing.checked">
-                <label for="{{ clothing.name }}">{{ clothing.name }} - R${{ clothing.price }}</label>
-            </li>
-        </ul>
-        <div class="total">
-            <p>Total Orçamento: <span>R${{ calculateTotal().toFixed(2) }}</span></p>
-        </div>
-        <button id="submit-button" (click)="onSubmit()">Enviar Pedido</button>
-    </section>
+    <h2>Defina a Quantidade de Roupas:</h2>
+    <ul class="clothes-list">
+        <li *ngFor="let clothing of clothesList">
+            <label for="{{ clothing.name }}">{{ clothing.name }} - R${{ clothing.price }}</label>
+            <input type="number" id="{{ clothing.name }}" class="clothes-quantity" [(ngModel)]="clothing.quantity" min="0">
+        </li>
+        <button id="submit-button" (click)="calculateTotal()">Enviar Pedido</button>
+
+    </ul>
+        <form *ngIf="showQuoteForm" (submit)="approveQuote()">
+            <h2>Orçamento:</h2>
+            <label for="deliveryDate">Valor Total:</label>
+            <input type="text" [value]="total_lavagem" readonly /><br><br>
+            <label for="deliveryDate">Prazo de Entrega:</label>
+            <input type="text" id="deliveryDate" [value]="tempo_lavagem" [(ngModel)]="deliveryDate" required><br><br>
+            <button id="submit-button" type="submit">Aprovar Orçamento</button>
+        </form>
+    </section>    
+
     <footer class="footer text-center">2023 © LOL - Lavanderia Online</footer>
 
 
