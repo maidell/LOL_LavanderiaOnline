@@ -22,7 +22,6 @@ export class NovoPedidoComponent {
     { name: 'Meia', price: 5, quantity: 0, time: 15 },
     { name: 'Cueca', price: 5, quantity: 0, time: 20 },
     { name: 'Bermuda', price: 15, quantity: 0, time: 35 }
-    // Adicionar mais roupas aqui
   ];
   showQuoteForm: boolean = false;
   deliveryDate: string = '';
