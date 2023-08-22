@@ -24,13 +24,33 @@ export class NovoPedidoComponent {
     { name: 'Bermuda', price: 15, quantity: 0, time: 35 }
     // Adicionar mais roupas aqui
   ];
-
-  calculateTotal(): number {
-    return this.clothesList.reduce((sum, item) => sum + (item.checked ? item.price : 0), 0);
+  showQuoteForm: boolean = false;
+  deliveryDate: string = '';
+  private total:number = 0;
+  
+  
+  approveQuote(): void {
+    this.showQuoteForm = false;
+    const orderNumber = Math.floor(Math.random() * 1000) + 1;
+    alert(`Orçamento Aprovado!\nNúmero de Pedido: ${orderNumber}`);
+  }
+  
+  calculateTotal(): void {
+    this.total = this.clothesList.reduce((sum, item) => sum + (item.quantity * item.price), 0);
+    let menor_prazo = this.clothesList[0].time;
+    for (const element of this.clothesList) {
+      menor_prazo = element.time < menor_prazo ? element.time : menor_prazo;
+    }
+    this.deliveryDate = menor_prazo.toString();
+    this.showQuoteForm = true
   }
 
-  onSubmit(): void {
-    const total = this.calculateTotal();
-    alert(`Pedido Enviado!\nTotal: R$${total.toFixed(2)}`);
+  get total_lavagem(): string {
+    let total_str = 'R$ ' + this.total.toString() + ",00"
+    return total_str
+  }
+
+  get tempo_lavagem() : string {
+    return this.deliveryDate + ' minutos'
   }
 }
