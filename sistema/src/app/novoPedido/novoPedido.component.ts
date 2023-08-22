@@ -1,19 +1,27 @@
 import { Component } from '@angular/core';
 
+interface Clothing {
+  name: string;
+  price: number;
+  quantity: number;
+  time: number;
+}
+
 @Component({
   selector: 'app-novo-pedido',
   templateUrl: './novoPedido.component.html',
   styleUrls: ['./novoPedido.component.css']
 })
+
 export class NovoPedidoComponent {
-  clothesList = [
-    { name: 'Camisa', price: 20, checked: false },
-    { name: 'Calça', price: 20, checked: false },
-    { name: 'Calça Jeans', price: 25, checked: false },
-    { name: 'Jaqueta', price: 40, checked: false },
-    { name: 'Meia', price: 5, checked: false },
-    { name: 'Cueca', price: 5, checked: false },
-    { name: 'Bermuda', price: 15, checked: false },
+  clothesList: Clothing[] = [
+    { name: 'Camisa', price: 20, quantity: 0, time: 30 },
+    { name: 'Calça', price: 20, quantity: 0, time: 40 },
+    { name: 'Calça Jeans', price: 25, quantity: 0, time: 50 },
+    { name: 'Jaqueta', price: 40, quantity: 0, time: 60 },
+    { name: 'Meia', price: 5, quantity: 0, time: 15 },
+    { name: 'Cueca', price: 5, quantity: 0, time: 20 },
+    { name: 'Bermuda', price: 15, quantity: 0, time: 35 }
     // Adicionar mais roupas aqui
   ];
 
