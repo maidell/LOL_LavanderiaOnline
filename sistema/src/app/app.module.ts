@@ -9,6 +9,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { NovoPedidoComponent } from './novoPedido/novoPedido.component';
 import { FormsModule } from '@angular/forms';
+import { ExcluirPedidoComponent } from './excluir-pedido/excluir-pedido.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     DashboardComponent,
     AutocadastroComponent,
-    NovoPedidoComponent
+    NovoPedidoComponent,
+    ExcluirPedidoComponent
   ],
 
   imports: [
