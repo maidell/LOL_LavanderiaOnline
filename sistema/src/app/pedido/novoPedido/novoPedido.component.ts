@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { OrderService } from '../services';
-import { Clothing } from '../models/clothing.model';
-
+import { Clothing } from 'src/app/models/clothing.model';
+import { OrderService } from 'src/app/services/order.service';
 
 
 @Component({
