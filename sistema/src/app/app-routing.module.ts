@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AutocadastroComponent } from './autocadastro/autocadastro.component';
+import { NovoPedidoComponent } from './pedido/novoPedido/novoPedido.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { NovoPedidoComponent } from './novoPedido/novoPedido.component'
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full'},

@@ -7,7 +7,7 @@ import { Clothing } from '../models/clothing.model';
 @Component({
   selector: 'app-novo-pedido',
   templateUrl: './novoPedido.component.html',
-  styleUrls: ['./novoPedido.component.css']
+  styleUrls: ['./novoPedido.component.scss']
 })
 
 export class NovoPedidoComponent {
