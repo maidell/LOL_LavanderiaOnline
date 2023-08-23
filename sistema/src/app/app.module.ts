@@ -7,9 +7,9 @@ import { AppComponent } from './app.component';
 import { AutocadastroComponent } from './autocadastro/autocadastro.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
-import { NovoPedidoComponent } from './novoPedido/novoPedido.component';
+import { NovoPedidoComponent } from './pedido/novoPedido/novoPedido.component';
 import { FormsModule } from '@angular/forms';
-import { ExcluirPedidoComponent } from './excluir-pedido/excluir-pedido.component';
+import { cancelarPedidoComponent } from './pedido/cancelarPedido/cancelarPedidoComponent';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,7 @@ import { ExcluirPedidoComponent } from './excluir-pedido/excluir-pedido.componen
     DashboardComponent,
     AutocadastroComponent,
     NovoPedidoComponent,
-    ExcluirPedidoComponent
+    //cancelarPedidoComponent
   ],
 
   imports: [

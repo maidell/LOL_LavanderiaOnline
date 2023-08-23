@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CancelarPedidoComponent } from './cancelar-pedido.component';
+import { cancelarPedidoComponent } from './cancelarPedidoComponent';
 
 describe('CancelarPedidoComponent', () => {
-  let component: CancelarPedidoComponent;
-  let fixture: ComponentFixture<CancelarPedidoComponent>;
+  let component: cancelarPedidoComponent;
+  let fixture: ComponentFixture<cancelarPedidoComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [CancelarPedidoComponent]
+      declarations: [cancelarPedidoComponent]
     });
-    fixture = TestBed.createComponent(CancelarPedidoComponent);
+    fixture = TestBed.createComponent(cancelarPedidoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
