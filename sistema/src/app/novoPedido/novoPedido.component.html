@@ -58,17 +58,17 @@
             <label for="{{ clothing.name }}">{{ clothing.name }} - R${{ clothing.price }}</label>
             <input type="number" id="{{ clothing.name }}" class="clothes-quantity" [(ngModel)]="clothing.quantity" min="0">
         </li>
-        <button id="submit-button" (click)="calculateTotal()">Enviar Pedido</button>
+        <button id="submit-button" (click)="generateOrder()">Enviar Pedido</button>
 
     </ul>
-        <form *ngIf="showQuoteForm" (submit)="approveQuote()">
+        <div *ngIf="showOrcamento">
             <h2>Orçamento:</h2>
-            <label for="deliveryDate">Valor Total:</label>
-            <input type="text" [value]="total_lavagem" readonly /><br><br>
-            <label for="deliveryDate">Prazo de Entrega:</label>
-            <input type="text" id="deliveryDate" [value]="tempo_lavagem" [(ngModel)]="deliveryDate" required><br><br>
-            <button id="submit-button" type="submit">Aprovar Orçamento</button>
-        </form>
+            <label for="{{value}}">Valor Total: R$ {{ value }},00</label>
+            <!-- <input type="text" [value]="valueOrder" /><br><br> -->
+            <label for="{{time}}">Prazo de Entrega: {{ time }} minutos</label>
+            <!-- <input type="text" name="deliveryDate" id="deliveryDate" [value]="timeOrder" required><br><br> -->
+            <button (click)="sendOrder()" id="submit-button" type="submit">Aprovar Orçamento</button>
+        </div>
     </section>    
 
     <footer class="footer text-center">2023 © LOL - Lavanderia Online</footer>

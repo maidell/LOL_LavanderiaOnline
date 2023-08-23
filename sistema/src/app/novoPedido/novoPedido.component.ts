@@ -1,11 +1,8 @@
 import { Component } from '@angular/core';
+import { OrderService } from '../services';
+import { Clothing } from '../models/clothing.model';
 
-interface Clothing {
-  name: string;
-  price: number;
-  quantity: number;
-  time: number;
-}
+
 
 @Component({
   selector: 'app-novo-pedido',
@@ -23,33 +20,36 @@ export class NovoPedidoComponent {
     { name: 'Cueca', price: 5, quantity: 0, time: 20 },
     { name: 'Bermuda', price: 15, quantity: 0, time: 35 }
   ];
-  showQuoteForm: boolean = false;
-  deliveryDate: string = '';
-  private total:number = 0;
+
+  showOrcamento: boolean = false;
+  value: number = 0;
+  time: number = 0;
   
+  constructor(private orderService: OrderService) { }
   
-  approveQuote(): void {
-    this.showQuoteForm = false;
-    const orderNumber = Math.floor(Math.random() * 1000) + 1;
-    alert(`Orçamento Aprovado!\nNúmero de Pedido: ${orderNumber}`);
+  calculateValue(): void {
+    this.value = this.clothesList.reduce((sum, item) => sum + (item.quantity * item.price), 0);
   }
-  
-  calculateTotal(): void {
-    this.total = this.clothesList.reduce((sum, item) => sum + (item.quantity * item.price), 0);
-    let menor_prazo = this.clothesList[0].time;
+
+  calculateTime(): void {
+    let short = this.clothesList[0].time;
     for (const element of this.clothesList) {
-      menor_prazo = element.time < menor_prazo ? element.time : menor_prazo;
+      short = element.time < short ? element.time : short;
     }
-    this.deliveryDate = menor_prazo.toString();
-    this.showQuoteForm = true
+    this.time = short;
   }
 
-  get total_lavagem(): string {
-    let total_str = 'R$ ' + this.total.toString() + ",00"
-    return total_str
+  generateOrder(): void{
+    this.calculateTime();
+    this.calculateValue();
+    this.showOrcamento = true;
   }
-
-  get tempo_lavagem() : string {
-    return this.deliveryDate + ' minutos'
+  
+  sendOrder(): void {
+    this.showOrcamento = false;
+    let newOrder = this.orderService.createOrder(this.time, this.value);
+    alert(`Orçamento Aprovado!\nNúmero de Pedido: ${newOrder.id}`);
+    this.orderService.addOrder(newOrder);
+    console.log(this.orderService.listOrder);
   }
 }
