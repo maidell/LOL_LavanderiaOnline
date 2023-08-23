@@ -64,9 +64,7 @@
         <div *ngIf="showOrcamento">
             <h2>Orçamento:</h2>
             <label for="{{value}}">Valor Total: R$ {{ value }},00</label>
-            <!-- <input type="text" [value]="valueOrder" /><br><br> -->
             <label for="{{time}}">Prazo de Entrega: {{ time }} minutos</label>
-            <!-- <input type="text" name="deliveryDate" id="deliveryDate" [value]="timeOrder" required><br><br> -->
             <button (click)="sendOrder()" id="submit-button" type="submit">Aprovar Orçamento</button>
         </div>
     </section>    
