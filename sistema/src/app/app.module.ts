@@ -14,7 +14,7 @@ import { DashboardComponent } from './cliente';
   declarations: [
     AppComponent,
     LoginComponent,
-    
+    DashboardComponent,
     AutocadastroComponent,
     NovoPedidoComponent,
     
@@ -24,7 +24,8 @@ import { DashboardComponent } from './cliente';
   imports: [
     RouterModule.forRoot([
     { path: '', redirectTo: '/login', pathMatch: 'full'},
-    { path: 'login',component: LoginComponent},
+    { path: 'dashboard', component: DashboardComponent},
+    { path: 'login', component: LoginComponent},
     { path: 'autocadastro', component: AutocadastroComponent},
     { path: 'novo-pedido', component: NovoPedidoComponent}
     ]),
