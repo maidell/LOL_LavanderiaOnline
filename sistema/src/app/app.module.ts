@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AutocadastroComponent } from './autocadastro/autocadastro.component';
 import { LoginComponent } from './login/login.component';
-import { NovoPedidoComponent } from './novoPedido/novoPedido.component';
+import { NovoPedidoComponent } from './pedido/novoPedido/novoPedido.component';
 import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './cliente';
 
@@ -14,9 +14,11 @@ import { DashboardComponent } from './cliente';
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent,
+    
     AutocadastroComponent,
-    NovoPedidoComponent
+    NovoPedidoComponent,
+    
+    //cancelarPedidoComponent
   ],
 
   imports: [
