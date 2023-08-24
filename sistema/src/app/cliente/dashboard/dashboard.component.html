@@ -18,79 +18,64 @@
 <script src="https://kit.fontawesome.com/d26eb65697.js" crossorigin="anonymous"></script>
 
 <body>
-  <!-- Sidebar -->
-  <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
-      <div class="position-sticky">
-          <div class="list-group list-group-flush mx-3 mt-4">
-            <a
-            href="#"
-            class="list-group-item list-group-item-action py-2 ripple"
-            aria-current="true"
-          >
-            <h5 id="title-menu">LOL - Lavanderia Online</h5>
-          </a>
-        <a
-          href="#"
-          class="list-group-item list-group-item-action py-2 ripple"
-          aria-current="true"
-        >
-          <i class="fas fa-home"></i><span>Página Inicial</span>
-        </a>
-        <a href="#" class="list-group-item list-group-item-action py-2 ripple"
-          ><i class="fas fa-tasks"></i><span>Meus Pedidos</span></a
-          >
-          <a routerLink="/novo-pedido" href="#" class="list-group-item list-group-item-action py-2 ripple">
-              <i class="fas fa-plus"></i><span>Novo Pedido</span>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action py-2 ripple"
-            ><i class="icon-money"></i><span>Orçamentos</span></a
-            >
-            <a href="#" class="list-group-item list-group-item-action py-2 ripple"
-                ><i class="fas fa-user"></i><span> Meu Perfil</span></a>
-      </div>
-    </div>
-  </nav>
-  <div class="separator"></div> 
+    <!-- Sidebar -->
+    <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+        <div class="position-sticky">
+            <div class="list-group list-group-flush mx-3 mt-4">
+                <a href="#" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
+                    <h5 id="title-menu">LOL - Lavanderia Online</h5>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
+                    <i class="fas fa-home"></i><span>Página Inicial</span>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+                        class="fas fa-tasks"></i><span>Meus Pedidos</span></a>
+                <a routerLink="/novo-pedido" href="#" class="list-group-item list-group-item-action py-2 ripple">
+                    <i class="fas fa-plus"></i><span>Novo Pedido</span>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+                        class="icon-money"></i><span>Orçamentos</span></a>
+                <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-user"></i><span>
+                        Meu Perfil</span></a>
+                <a routerLink="/login" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
+                    <i class="fas fa-arrow-left"></i><span>Sair</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="separator"></div>
     <div class="content">
-        <h2>Pedidos em aberto - 01</h2>
-        <br />
-        <table class="table">
-            <thead>
-                <h4 class="title">
-                    Pedido 001
-                </h4>
-                <tr>
-                    <th>Código da Roupa</th>
-                    <th>Tipo da Roupa</th>
-                    <th>Quantidade</th>
-                    <th>Valor Unitário</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>01</td>
-                    <td>Camiseta</td>
-                    <td>5</td>
-                    <td>R$5,00</td>
-                    <td>Lavando</td>
-                </tr>
-                <tr>
-                    <td>02</td>
-                    <td>Calça</td>
-                    <td>2</td>
-                    <td>R$10,00</td>
-                    <td>Secando</td>
-                </tr>
-                <tr>
-                    <td>03</td>
-                    <td>Moletom</td>
-                    <td>1</td>
-                    <td>R$20,00</td>
-                    <td>Lavando</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="order-list">
+            <div *ngFor="let order of listOrder">
+                <h2>Pedido {{ order.id }}</h2>
+                <table class="table">
+                    <thead>
+                        <th>Status</th>
+                        <th>Valor</th>
+                        <th>Prazo</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ order.status }}</td>
+                            <td >R$ {{ order.value }},00</td>
+                            <td>{{ order.time }} minutos</td>
+                        </tr>
+                    </tbody>
+                    <table>
+                        <tbody>
+                            <thead>
+                                <th>Tipo de Roupa</th>
+                                <th>Quantidade</th>
+                            </thead>
+                            <tr *ngFor="let clothing of order.clothings">
+                                <td>{{ clothing.name }}</td>
+                                <td>{{ clothing.quantity }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </table>
+            </div>
+        </div>
     </div>
     <script src="assets/js/jquery-3.3.1.min.js"></script>
     <script src="assets/js/jquery-migrate-3.0.0.min.js"></script>
