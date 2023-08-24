@@ -5,19 +5,19 @@ import { RouterModule, Routes } from "@angular/router";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AutocadastroComponent } from './autocadastro/autocadastro.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { NovoPedidoComponent } from './pedido/novoPedido/novoPedido.component';
 import { FormsModule } from '@angular/forms';
-import { cancelarPedidoComponent } from './pedido/cancelarPedido/cancelarPedidoComponent';
+import { DashboardComponent } from './cliente';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent,
+    
     AutocadastroComponent,
     NovoPedidoComponent,
+    
     //cancelarPedidoComponent
   ],
 
@@ -30,7 +30,8 @@ import { cancelarPedidoComponent } from './pedido/cancelarPedido/cancelarPedidoC
     ]),
     AppRoutingModule,
     BrowserModule,
-    FormsModule
+    FormsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
