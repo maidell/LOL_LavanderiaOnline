@@ -5,10 +5,10 @@ import { RouterModule, Routes } from "@angular/router";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AutocadastroComponent } from './autocadastro/autocadastro.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { NovoPedidoComponent } from './novoPedido/novoPedido.component';
 import { FormsModule } from '@angular/forms';
+import { DashboardComponent } from './cliente';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,8 @@ import { FormsModule } from '@angular/forms';
     ]),
     AppRoutingModule,
     BrowserModule,
-    FormsModule
+    FormsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

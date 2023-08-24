@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AutocadastroComponent } from './autocadastro/autocadastro.component';
 import { NovoPedidoComponent } from './novoPedido/novoPedido.component';
 import { LoginComponent } from './login/login.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardComponent } from './cliente';
 
 
 const routes: Routes = [
