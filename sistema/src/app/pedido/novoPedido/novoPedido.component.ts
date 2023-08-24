@@ -64,8 +64,8 @@ export class NovoPedidoComponent {
   }
 
   declineOrder(): void{
-    this.newOrder.status = 'Recusado';
+    this.newOrder.status = 'Rejeitado';
     this.orderService.addOrder(this.newOrder);
-    alert(`Orçamento Recusado!`);
+    alert(`Orçamento Rejeitado!`);
   }
 }
