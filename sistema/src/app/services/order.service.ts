@@ -21,8 +21,8 @@ export class OrderService {
     order.status = status;
   }
   
-  setClothings(order: Order, clothings: Clothing[]){
-    order.clothings = clothings;
+  setClothing(order: Order, clothing: Clothing){
+    order.clothings.push(clothing);
   }
   
   addOrder(order: Order) {

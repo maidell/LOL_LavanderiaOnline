@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Clothing } from 'src/app/models/clothing.model';
+import { Order } from 'src/app/models/order.model';
 import { OrderService } from 'src/app/services/order.service';
 
 
@@ -38,17 +39,26 @@ export class NovoPedidoComponent {
     this.time = short;
   }
 
-  generateOrder(): void{
+  generateOrder(): void {
     this.calculateTime();
     this.calculateValue();
     this.showOrcamento = true;
+  }
+
+  insertClothes(order: Order): void {
+    for (let clothing of this.clothesList) {
+      if (clothing.quantity > 0){
+        this.orderService.setClothing(order, clothing);
+      }
+    }
   }
   
   sendOrder(): void {
     this.showOrcamento = false;
     let newOrder = this.orderService.createOrder(this.time, this.value);
-    alert(`Orçamento Aprovado!\nNúmero de Pedido: ${newOrder.id}`);
+    this.insertClothes(newOrder);
     this.orderService.addOrder(newOrder);
+    alert(`Orçamento Aprovado!\nNúmero de Pedido: ${newOrder.id}`);
     console.log(this.orderService.listOrder);
   }
 }
