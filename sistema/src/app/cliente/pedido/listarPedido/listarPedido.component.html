@@ -1,1 +1,55 @@
-<p>listar-pedido works!</p>
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Pedidos - LOL Lavanderia Online</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <header class="bg-dark text-white text-center py-4">
+        <h1>Meus Pedidos</h1>
+    </header>
+    <div class="container mt-4">
+        <app-dashboard></app-dashboard>
+    </div>
+    <div class="container mt-4">
+        <div *ngFor="let order of listOrder" class="border rounded p-3 mb-3">
+            <h2 class="mb-3">Pedido {{ order.id }}</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Status</th>
+                        <th>Valor</th>
+                        <th>Prazo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ order.status }}</td>
+                        <td>R$ {{ order.value }},00</td>
+                        <td>{{ order.time }} minutos</td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Tipo de Roupa</th>
+                        <th>Quantidade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let clothing of order.clothings">
+                        <td>{{ clothing.name }}</td>
+                        <td>{{ clothing.quantity }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <footer class="footer text-center bg-dark text-white py-3">
+        2023 © LOL - Lavanderia Online
+    </footer>
+</body>
+</html>

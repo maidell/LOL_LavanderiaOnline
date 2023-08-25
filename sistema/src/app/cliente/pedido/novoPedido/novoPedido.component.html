@@ -19,38 +19,9 @@
         <h1>Novo Pedido</h1>
     </header>
   <!-- Sidebar -->
-  <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
-      <div class="position-sticky">
-          <div class="list-group list-group-flush mx-3 mt-4">
-            <a
-            href="#"
-            class="list-group-item list-group-item-action py-2 ripple"
-            aria-current="true"
-          >
-            <h5 id="title-menu">LOL - Lavanderia Online</h5>
-          </a>
-        <a
-          href="#"
-          class="list-group-item list-group-item-action py-2 ripple"
-          aria-current="true"
-          routerLink="/dashboard"
-        >
-          <i class="fas fa-home"></i><span>Página Inicial</span>
-        </a>
-        <a href="#" class="list-group-item list-group-item-action py-2 ripple"
-          ><i class="fas fa-tasks"></i><span>Meus Pedidos</span></a
-          >
-          <a routerLink="/novo-pedido" href="#" class="list-group-item list-group-item-action py-2 ripple">
-              <i class="fas fa-plus"></i><span>Novo Pedido</span>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action py-2 ripple"
-            ><i class="icon-money"></i><span>Orçamentos</span></a
-            >
-            <a href="#" class="list-group-item list-group-item-action py-2 ripple"
-                ><i class="fas fa-user"></i><span> Meu Perfil</span></a>
-      </div>
-    </div>
-  </nav>
+  <div>
+    <app-dashboard></app-dashboard>
+  </div>
     <section class="order-form">
     <h2>Defina a Quantidade de Roupas:</h2>
     <ul class="clothes-list">

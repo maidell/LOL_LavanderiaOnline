@@ -8,7 +8,7 @@ import { AutocadastroComponent } from './autocadastro/autocadastro.component';
 import { LoginComponent } from './login/login.component';
 import * as Pedido from './cliente/pedido';
 import { FormsModule } from '@angular/forms';
-import { DashboardComponent } from './cliente';
+import { DashboardComponent, LayoutComponent } from './cliente';
 
 
 @NgModule({
@@ -20,7 +20,8 @@ import { DashboardComponent } from './cliente';
     Pedido.AprovarPedidoComponent,
     Pedido.ListarPedidoComponent,
     Pedido.cancelarPedidoComponent,
-    Pedido.NovoPedidoComponent
+    Pedido.NovoPedidoComponent,
+    LayoutComponent
 
     
     
@@ -33,7 +34,8 @@ import { DashboardComponent } from './cliente';
     { path: 'dashboard', component: DashboardComponent},
     { path: 'login', component: LoginComponent},
     { path: 'autocadastro', component: AutocadastroComponent},
-    { path: 'novo-pedido', component: Pedido.NovoPedidoComponent}
+    { path: 'novo-pedido', component: Pedido.NovoPedidoComponent},
+    { path: 'listar-pedido', component: Pedido.ListarPedidoComponent},
     ]),
     AppRoutingModule,
     BrowserModule,
