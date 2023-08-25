@@ -14,16 +14,14 @@ export class ListarPedidoComponent {
 
   pagarPedido(order: Order): void {
     // Implemente aqui a lógica para pagar o pedido
-
+    this.orderService.setStatusOrder(order, 'Pago');
+    alert(`Pedido Pago!\nNúmero de Pedido: ${order.id}`);
   }
 
   cancelarPedido(order: Order): void {
     // Implemente aqui a lógica para cancelar o pedido
     this.orderService.setStatusOrder(order, 'Cancelado');
-    
     alert(`Pedido Cancelado!\nNúmero de Pedido: ${order.id}`);
-
   }
-  
   
 }
