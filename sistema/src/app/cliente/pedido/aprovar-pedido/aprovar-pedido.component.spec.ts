@@ -1,8 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { AprovarPedidoComponent } from './aprovar-pedido.component';
 
-describe('AprovarPedidoComponent', () => {
+
+
+describe('AprovarpedidosComponent', () => {
   let component: AprovarPedidoComponent;
   let fixture: ComponentFixture<AprovarPedidoComponent>;
 

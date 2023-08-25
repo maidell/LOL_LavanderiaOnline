@@ -6,9 +6,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AutocadastroComponent } from './autocadastro/autocadastro.component';
 import { LoginComponent } from './login/login.component';
-import { NovoPedidoComponent } from './pedido/novoPedido/novoPedido.component';
+import * as Pedido from './cliente/pedido';
 import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './cliente';
+
 
 @NgModule({
   declarations: [
@@ -16,7 +17,12 @@ import { DashboardComponent } from './cliente';
     LoginComponent,
     DashboardComponent,
     AutocadastroComponent,
-    NovoPedidoComponent,
+    Pedido.AprovarPedidoComponent,
+    Pedido.ListarPedidoComponent,
+    Pedido.cancelarPedidoComponent,
+    Pedido.NovoPedidoComponent
+
+    
     
     //cancelarPedidoComponent
   ],
@@ -27,7 +33,7 @@ import { DashboardComponent } from './cliente';
     { path: 'dashboard', component: DashboardComponent},
     { path: 'login', component: LoginComponent},
     { path: 'autocadastro', component: AutocadastroComponent},
-    { path: 'novo-pedido', component: NovoPedidoComponent}
+    { path: 'novo-pedido', component: Pedido.NovoPedidoComponent}
     ]),
     AppRoutingModule,
     BrowserModule,

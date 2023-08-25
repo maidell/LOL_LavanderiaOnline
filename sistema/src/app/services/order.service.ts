@@ -28,5 +28,9 @@ export class OrderService {
   addOrder(order: Order) {
     this.listOrder.push(order);
   }
+  getPendingOrders(): Order[] {
+    return this.listOrder.filter(order => order.status === 'Em Aberto');
+  }
+  
 }
 

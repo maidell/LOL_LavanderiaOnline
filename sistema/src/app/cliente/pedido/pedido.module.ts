@@ -6,9 +6,7 @@ import { AprovarPedidoComponent } from './aprovar-pedido/aprovar-pedido.componen
 
 @NgModule({
   declarations: [
-    ListarPedidoComponent,
-    cancelarPedidoComponent,
-    AprovarPedidoComponent
+    
   ],
   imports: [
     CommonModule
