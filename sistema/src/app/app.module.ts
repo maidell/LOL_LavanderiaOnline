@@ -8,8 +8,9 @@ import { AutocadastroComponent } from './autocadastro/autocadastro.component';
 import { LoginComponent } from './login/login.component';
 import * as Pedido from './cliente/pedido';
 import { FormsModule } from '@angular/forms';
-import { LayoutComponent } from './cliente';
+import { DashboardComponent, LayoutComponent } from './cliente';
 import { NavbarComponent } from './cliente';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -21,6 +22,8 @@ import { NavbarComponent } from './cliente';
     Pedido.NovoPedidoComponent,
     LayoutComponent,
     NavbarComponent,
+    DashboardComponent,
+    FooterComponent
   ],
 
   imports: [
@@ -31,6 +34,7 @@ import { NavbarComponent } from './cliente';
     { path: 'autocadastro', component: AutocadastroComponent},
     { path: 'novo-pedido', component: Pedido.NovoPedidoComponent},
     { path: 'listar-pedido', component: Pedido.ListarPedidoComponent},
+    { path: 'DashboardComponent', component: DashboardComponent}
     ]),
     AppRoutingModule,
     BrowserModule,
