@@ -1,1 +1,1 @@
-export * from './consulta-pedido.component';
+export * from './consultaPedido.component';

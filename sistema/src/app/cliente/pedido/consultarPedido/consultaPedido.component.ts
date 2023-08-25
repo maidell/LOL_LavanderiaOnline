@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-consulta-pedido',
-  templateUrl: './consulta-pedido.component.html',
-  styleUrls: ['./consulta-pedido.component.scss']
+  templateUrl: './consultaPedido.component.html',
+  styleUrls: ['./consultaPedido.component.scss']
 })
 export class ConsultaPedidoComponent {
   pedidoNumero: number | undefined;

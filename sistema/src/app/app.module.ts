@@ -11,7 +11,6 @@ import { FormsModule } from '@angular/forms';
 import { DashboardComponent, LayoutComponent } from './cliente';
 import { NavbarComponent } from './cliente';
 import { FooterComponent } from './footer/footer.component';
-import { ConsultaPedidoComponent } from './cliente/pedido/consultarPedido/consulta-pedido.component';
 
 @NgModule({
   declarations: [
