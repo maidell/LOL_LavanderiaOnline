@@ -1,14 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { Order } from 'src/app/models/order.model';
-import { OrderService } from 'src/app/services/order.service';
+import { OrderService } from 'src/app/services';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
 
-  
-  
+  constructor(public orderService: OrderService) { }
+
+  ngOnInit(): void {
+  }
+
 }

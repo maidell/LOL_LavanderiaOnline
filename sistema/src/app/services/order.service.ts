@@ -31,6 +31,10 @@ export class OrderService {
   getPendingOrders(): Order[] {
     return this.listOrder.filter(order => order.status === 'Em Aberto');
   }
+  hasPendingOrders(): boolean {
+    return this.listOrder.some(order => order.status === 'Em Aberto');
+  }
+  
   
 }
 
