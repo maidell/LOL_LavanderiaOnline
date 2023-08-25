@@ -7,7 +7,7 @@ import { OrderService } from 'src/app/services/order.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class navbarComponent {
+export class DashboardComponent {
 
   
   
