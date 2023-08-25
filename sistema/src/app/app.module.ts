@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { DashboardComponent, LayoutComponent } from './cliente';
 import { NavbarComponent } from './cliente';
 import { FooterComponent } from './footer/footer.component';
-
+import { ConsultaPedidoComponent } from './cliente/pedido/consultarPedido/consulta-pedido.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +20,7 @@ import { FooterComponent } from './footer/footer.component';
     AutocadastroComponent,
     Pedido.ListarPedidoComponent,
     Pedido.NovoPedidoComponent,
+    ConsultaPedidoComponent,
     LayoutComponent,
     NavbarComponent,
     DashboardComponent,
@@ -28,18 +29,18 @@ import { FooterComponent } from './footer/footer.component';
 
   imports: [
     RouterModule.forRoot([
-    { path: '', redirectTo: '/login', pathMatch: 'full'},
-    { path: 'navbar', component: NavbarComponent},
-    { path: 'login', component: LoginComponent},
-    { path: 'autocadastro', component: AutocadastroComponent},
-    { path: 'novo-pedido', component: Pedido.NovoPedidoComponent},
-    { path: 'listar-pedido', component: Pedido.ListarPedidoComponent},
-    { path: 'DashboardComponent', component: DashboardComponent}
+      { path: '', redirectTo: '/login', pathMatch: 'full'},
+      { path: 'navbar', component: NavbarComponent},
+      { path: 'login', component: LoginComponent},
+      { path: 'autocadastro', component: AutocadastroComponent},
+      { path: 'novo-pedido', component: Pedido.NovoPedidoComponent},
+      { path: 'listar-pedido', component: Pedido.ListarPedidoComponent},
+      { path: 'consulta-pedido', component: ConsultaPedidoComponent},
+      { path: 'DashboardComponent', component: DashboardComponent}
     ]),
     AppRoutingModule,
     BrowserModule,
     FormsModule,
-    
   ],
   providers: [],
   bootstrap: [AppComponent]
