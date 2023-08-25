@@ -7,12 +7,8 @@ import { OrderService } from 'src/app/services/order.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class navbarComponent {
 
   
-  constructor(private orderService: OrderService){ }
   
-  listOrder: Order[] = this.orderService.listOrder
-
-  ngOnInit(): void{ }
 }

@@ -8,27 +8,30 @@ import { AutocadastroComponent } from './autocadastro/autocadastro.component';
 import { LoginComponent } from './login/login.component';
 import * as Pedido from './cliente/pedido';
 import { FormsModule } from '@angular/forms';
-import { DashboardComponent, LayoutComponent } from './cliente';
+import { LayoutComponent } from './cliente';
+import { NavbarComponent } from './cliente';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent,
+    
     AutocadastroComponent,
     Pedido.ListarPedidoComponent,
     Pedido.cancelarPedidoComponent,
     Pedido.NovoPedidoComponent,
     LayoutComponent,
-    Pedido.AprovarOrcamentoComponent
+    Pedido.AprovarOrcamentoComponent,
+    NavbarComponent,
+
 
   ],
 
   imports: [
     RouterModule.forRoot([
     { path: '', redirectTo: '/login', pathMatch: 'full'},
-    { path: 'dashboard', component: DashboardComponent},
+    { path: 'navbar', component: NavbarComponent},
     { path: 'login', component: LoginComponent},
     { path: 'autocadastro', component: AutocadastroComponent},
     { path: 'novo-pedido', component: Pedido.NovoPedidoComponent},
