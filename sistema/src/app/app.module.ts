@@ -20,7 +20,7 @@ import { ConsultaPedidoComponent } from './cliente/pedido/consultarPedido/consul
     AutocadastroComponent,
     Pedido.ListarPedidoComponent,
     Pedido.NovoPedidoComponent,
-    ConsultaPedidoComponent,
+    Pedido.ConsultaPedidoComponent,
     LayoutComponent,
     NavbarComponent,
     DashboardComponent,
@@ -35,7 +35,7 @@ import { ConsultaPedidoComponent } from './cliente/pedido/consultarPedido/consul
       { path: 'autocadastro', component: AutocadastroComponent},
       { path: 'novo-pedido', component: Pedido.NovoPedidoComponent},
       { path: 'listar-pedido', component: Pedido.ListarPedidoComponent},
-      { path: 'consulta-pedido', component: ConsultaPedidoComponent},
+      { path: 'consulta-pedido', component: Pedido.ConsultaPedidoComponent},
       { path: 'DashboardComponent', component: DashboardComponent}
     ]),
     AppRoutingModule,

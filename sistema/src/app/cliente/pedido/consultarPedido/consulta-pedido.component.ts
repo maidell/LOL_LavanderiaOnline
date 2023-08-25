@@ -7,11 +7,20 @@ import { Component } from '@angular/core';
 })
 export class ConsultaPedidoComponent {
   pedidoNumero: number | undefined;
-  pedido: any
- 
- 
+  pedido: any;
+
   consultarPedido() {
-    // Aqui você deve implementar a lógica para buscar os detalhes do pedido pelo número informado
-    // e atribuir os detalhes do pedido à variável 'pedido'
+    
+    // Exemplo hipotético de atribuição:
+    this.pedido = {
+      id: 123,
+      status: 'Entregue',
+      valorTotal: 150,
+      prazo: 120,
+      roupas: [
+        { nome: 'Camisa', quantidade: 2 },
+        { nome: 'Calça', quantidade: 1 }
+      ]
+    };
   }
 }

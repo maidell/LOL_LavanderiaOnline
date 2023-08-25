@@ -13,23 +13,28 @@
     <header class="bg-dark text-white text-center py-4">
         <h1>Consultar Pedidos</h1>
     </header>
-
-    <label for="pedidoNumero">Número do Pedido:</label>
-    <input type="number" id="pedidoNumero" [(ngModel)]="pedidoNumero">
-    <button class="btn btn-primary" (click)="consultarPedido()">Consultar</button>
-
-    <div *ngIf="pedido">
-        <h3>Detalhes do Pedido {{ pedido.id }}</h3>
-        <p>Status: {{ pedido.status }}</p>
-        <p>Valor Total: R$ {{ pedido.valorTotal }},00</p>
-        <p>Prazo: {{ pedido.prazo }} minutos</p>
-
-        <h4>Roupas no Pedido:</h4>
-        <ul>
-            <li *ngFor="let roupa of pedido.roupas">{{ roupa.nome }} - Quantidade: {{ roupa.quantidade }}</li>
-        </ul>
+    <div class="container mt-4">
+        <app-navbar></app-navbar>
     </div>
+    <div class="container">
+        <div class="content">
+            <label for="pedidoNumero">Número do Pedido:</label>
+            <input type="number" id="pedidoNumero" [(ngModel)]="pedidoNumero">
+            <button class="btn btn-primary" (click)="consultarPedido()">Consultar</button>
+        </div>
 
+        <div *ngIf="pedido" class="details">
+            <h3>Detalhes do Pedido {{ pedido.id }}</h3>
+            <p>Status: {{ pedido.status }}</p>
+            <p>Valor Total: R$ {{ pedido.valorTotal }},00</p>
+            <p>Prazo: {{ pedido.prazo }} minutos</p>
+
+            <h4>Roupas no Pedido:</h4>
+            <ul>
+                <li *ngFor="let roupa of pedido.roupas">{{ roupa.nome }} - Quantidade: {{ roupa.quantidade }}</li>
+            </ul>
+        </div>
+    </div>
 </body>
 
 </html>
