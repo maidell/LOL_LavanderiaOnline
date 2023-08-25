@@ -13,7 +13,6 @@ const routes: Routes = [
   { path: 'autocadastro', component: AutocadastroComponent},
   { path: 'navbar', component: NavbarComponent},
   { path: 'novopedido',component: Pedido.NovoPedidoComponent},
-  { path: 'aprovarorcamento',component: Pedido.AprovarOrcamentoComponent},
   { path: 'listarpedido',component: Pedido.ListarPedidoComponent},
 ];
 

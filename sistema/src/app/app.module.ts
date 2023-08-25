@@ -16,16 +16,11 @@ import { NavbarComponent } from './cliente';
   declarations: [
     AppComponent,
     LoginComponent,
-    
     AutocadastroComponent,
     Pedido.ListarPedidoComponent,
-    Pedido.cancelarPedidoComponent,
     Pedido.NovoPedidoComponent,
     LayoutComponent,
-    Pedido.AprovarOrcamentoComponent,
     NavbarComponent,
-
-
   ],
 
   imports: [
@@ -36,7 +31,6 @@ import { NavbarComponent } from './cliente';
     { path: 'autocadastro', component: AutocadastroComponent},
     { path: 'novo-pedido', component: Pedido.NovoPedidoComponent},
     { path: 'listar-pedido', component: Pedido.ListarPedidoComponent},
-    { path: 'aprovar-orcamento', component: Pedido.AprovarOrcamentoComponent},
     ]),
     AppRoutingModule,
     BrowserModule,
