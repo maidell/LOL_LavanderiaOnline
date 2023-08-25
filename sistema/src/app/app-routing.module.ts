@@ -5,8 +5,6 @@ import * as Pedido from './cliente/pedido';
 import { LoginComponent } from './login/login.component';
 import { NavbarComponent, DashboardComponent } from './cliente';
 
-
-
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full'},
   { path: 'login',component: LoginComponent},
@@ -15,6 +13,7 @@ const routes: Routes = [
   { path: 'novopedido',component: Pedido.NovoPedidoComponent},
   { path: 'listarpedido',component: Pedido.ListarPedidoComponent},
   { path: 'dashboard',component: DashboardComponent},
+  { path: 'consultapedido',component: Pedido.ConsultaPedidoComponent},
 ];
 
 @NgModule({

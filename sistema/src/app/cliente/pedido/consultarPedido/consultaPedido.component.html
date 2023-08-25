@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultar Pedidos - LOL Lavanderia Online</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body class="d-flex flex-column">
+    <header class="bg-dark text-white text-center py-4">
+        <h1>Consultar Pedidos</h1>
+    </header>
+    <div class="container mt-4">
+        <app-navbar></app-navbar>
+    </div>
+    <div class="container">
+        <div class="content">
+            <label for="pedidoNumero">Número do Pedido:</label>
+            <input type="number" id="pedidoNumero" [(ngModel)]="pedidoNumero">
+            <button class="btn btn-primary" (click)="consultarPedido()">Consultar</button>
+        </div>
+
+        <div *ngIf="pedido" class="details">
+            <h3>Detalhes do Pedido {{ pedido.id }}</h3>
+            <p>Status: {{ pedido.status }}</p>
+            <p>Valor Total: R$ {{ pedido.valorTotal }},00</p>
+            <p>Prazo: {{ pedido.prazo }} minutos</p>
+
+            <h4>Roupas no Pedido:</h4>
+            <ul>
+                <li *ngFor="let roupa of pedido.roupas">{{ roupa.nome }} - Quantidade: {{ roupa.quantidade }}</li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
