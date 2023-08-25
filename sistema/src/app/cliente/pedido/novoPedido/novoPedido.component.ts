@@ -25,8 +25,10 @@ export class NovoPedidoComponent {
   value: number = 0;
   time: number = 0;
   newOrder: Order = new Order(0, 0);
+order: any;
   
   constructor(private orderService: OrderService) { }
+  private orderNumberCounter: number = 1;
   
   calculateValue(): void {
     this.value = this.clothesList.reduce((sum, item) => sum + (item.quantity * item.price), 0);
@@ -43,8 +45,11 @@ export class NovoPedidoComponent {
   generateOrder(): void {
     this.calculateTime();
     this.calculateValue();
+
+    this.newOrder = new Order(this.orderNumberCounter, this.value);
+    this.orderNumberCounter++;
+
     this.newOrder.time = this.time;
-    this.newOrder.value = this.value;
     this.insertClothes(this.newOrder);
     this.showOrcamento = true;
   }
@@ -61,11 +66,21 @@ export class NovoPedidoComponent {
     this.showOrcamento = false;
     this.orderService.addOrder(this.newOrder);
     alert(`Orçamento Aprovado!\nNúmero de Pedido: ${this.newOrder.id}`);
+    this.clothesList.forEach(item => item.quantity = 0);
+    this.value = 0;
+    this.time = 0;
+    this.showOrcamento = false;
   }
 
   declineOrder(): void{
+    this.showOrcamento = false;
     this.newOrder.status = 'Rejeitado';
     this.orderService.addOrder(this.newOrder);
-    alert(`Orçamento Rejeitado!`);
-  }
+    alert(`Orçamento Rejeitado!\nNúmero de Pedido: ${this.newOrder.id}`);
+    this.clothesList.forEach(item => item.quantity = 0);
+    this.value = 0;
+    this.time = 0;
+    this.showOrcamento = false;
+    }
+  
 }

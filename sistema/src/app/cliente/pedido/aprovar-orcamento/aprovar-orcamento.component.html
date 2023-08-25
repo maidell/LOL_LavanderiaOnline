@@ -1,0 +1,11 @@
+<div class="card">
+  <div class="card-header bg-info text-white">
+      <h2 class="mb-0">Orçamento</h2>
+  </div>
+  <div class="card-body">
+      <p class="card-text">Valor Total: R$ {{ value }},00</p>
+      <p class="card-text">Prazo de Entrega: {{ time }} minutos</p>
+      <button class="btn btn-success" (click)="sendOrder(newOrder)">Aprovar Orçamento</button>
+      <button class="btn btn-danger ml-2" (click)="declineOrder(newOrder)">Recusar Orçamento</button>
+  </div>
+</div>

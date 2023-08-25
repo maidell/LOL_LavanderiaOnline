@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 
 <head>
     <meta charset="UTF-8">
@@ -37,6 +37,7 @@
                                 </li>
                             </ul>
                             <button class="btn btn-success mt-3" (click)="generateOrder()">Enviar Pedido</button>
+                            
                         </section>
                     </div>
                     <div class="col-md-6">
@@ -49,8 +50,7 @@
                                     <p class="card-text">Valor Total: R$ {{ value }},00</p>
                                     <p class="card-text">Prazo de Entrega: {{ time }} minutos</p>
                                     <button class="btn btn-success" (click)="sendOrder()">Aprovar Orçamento</button>
-                                    <button class="btn btn-danger ml-2" (click)="declineOrder()">Recusar
-                                        Orçamento</button>
+                                    <button class="btn btn-danger ml-2" (click)="declineOrder()">Recusar Orçamento</button>
                                 </div>
                             </div>
                         </section>
@@ -60,8 +60,6 @@
             </div>
         </div>
     </div>
-
-
 
     <script src="assets/js/jquery-3.3.1.min.js"></script>
     <script src="assets/js/jquery-migrate-3.0.0.min.js"></script>

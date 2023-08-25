@@ -17,15 +17,12 @@ import { DashboardComponent, LayoutComponent } from './cliente';
     LoginComponent,
     DashboardComponent,
     AutocadastroComponent,
-    Pedido.AprovarPedidoComponent,
     Pedido.ListarPedidoComponent,
     Pedido.cancelarPedidoComponent,
     Pedido.NovoPedidoComponent,
-    LayoutComponent
+    LayoutComponent,
+    Pedido.AprovarOrcamentoComponent
 
-    
-    
-    //cancelarPedidoComponent
   ],
 
   imports: [
@@ -36,6 +33,7 @@ import { DashboardComponent, LayoutComponent } from './cliente';
     { path: 'autocadastro', component: AutocadastroComponent},
     { path: 'novo-pedido', component: Pedido.NovoPedidoComponent},
     { path: 'listar-pedido', component: Pedido.ListarPedidoComponent},
+    { path: 'aprovar-orcamento', component: Pedido.AprovarOrcamentoComponent},
     ]),
     AppRoutingModule,
     BrowserModule,

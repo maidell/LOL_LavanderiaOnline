@@ -11,7 +11,9 @@ const routes: Routes = [
   { path: 'login',component: LoginComponent},
   { path: 'autocadastro', component: AutocadastroComponent},
   { path: 'dashboard', component: DashboardComponent},
-  { path: 'novopedido',component: Pedido.NovoPedidoComponent}
+  { path: 'novopedido',component: Pedido.NovoPedidoComponent},
+  { path: 'aprovarorcamento',component: Pedido.AprovarOrcamentoComponent},
+  { path: 'listarpedido',component: Pedido.ListarPedidoComponent},
 ];
 
 @NgModule({
