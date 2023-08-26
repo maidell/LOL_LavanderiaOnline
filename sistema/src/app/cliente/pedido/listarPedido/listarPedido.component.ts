@@ -8,20 +8,20 @@ import { OrderService } from 'src/app/services/order.service';
   styleUrls: ['./listarPedido.component.scss']
 })
 export class ListarPedidoComponent {
-  constructor(public orderService: OrderService){ }
+  constructor(public orderService: OrderService) { }
   listOrder: Order[] = this.orderService.listOrder;
   order: any;
 
-pagarPedido(order: Order): void {
-  this.orderService.setStatusOrder(order, 'Pago');
-  this.orderService.updateOrder(order); // Salva a alteração no local storage
-  alert(`Pedido Pago!\nNúmero de Pedido: ${order.id}`);
-}
+  pagarPedido(order: Order): void {
+    this.orderService.setStatusOrder(order, 'Pago');
+    this.orderService.updateOrder(order);
+    alert(`Pedido Pago!\nNúmero de Pedido: ${order.id}`);
+  }
 
-cancelarPedido(order: Order): void {
-  this.orderService.setStatusOrder(order, 'Cancelado');
-  this.orderService.updateOrder(order); // Salva a alteração no local storage
-  alert(`Pedido Cancelado!\nNúmero de Pedido: ${order.id}`);
-}
-  
+  cancelarPedido(order: Order): void {
+    this.orderService.setStatusOrder(order, 'Cancelado');
+    this.orderService.updateOrder(order);
+    alert(`Pedido Cancelado!\nNúmero de Pedido: ${order.id}`);
+  }
+
 }
