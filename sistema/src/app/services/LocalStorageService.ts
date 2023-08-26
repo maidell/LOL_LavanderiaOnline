@@ -1,24 +1,21 @@
 import { Injectable } from '@angular/core';
-import { Order } from '../models/order.model';
+import { Order } from 'src/app/models/order.model';
+
+const ORDERS_KEY = 'orders';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LocalStorageService {
-  private readonly ordersKey = 'orders';
 
   constructor() { }
 
-  saveOrders(orders: Order[]): void {
-    localStorage.setItem(this.ordersKey, JSON.stringify(orders));
-  }
-
   getOrders(): Order[] {
-    const ordersJSON = localStorage.getItem(this.ordersKey);
-    return ordersJSON ? JSON.parse(ordersJSON) : [];
+    const ordersString = localStorage.getItem(ORDERS_KEY);
+    return ordersString ? JSON.parse(ordersString) : [];
   }
 
-  clearOrders(): void {
-    localStorage.removeItem(this.ordersKey);
+  saveOrders(orders: Order[]): void {
+    localStorage.setItem(ORDERS_KEY, JSON.stringify(orders));
   }
 }

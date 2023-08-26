@@ -43,6 +43,14 @@ export class OrderService {
   return this.listOrder.find(order => order.id === id);
 }
 
+updateOrder(order: Order): void {
+  const index = this.listOrder.findIndex(o => o.id === order.id);
+  if (index !== -1) {
+    this.listOrder[index] = order;
+    this.localStorageService.saveOrders(this.listOrder);
+  }
+}
+
   
 }
 

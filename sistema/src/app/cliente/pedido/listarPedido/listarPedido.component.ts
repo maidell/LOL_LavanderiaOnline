@@ -12,16 +12,16 @@ export class ListarPedidoComponent {
   listOrder: Order[] = this.orderService.listOrder;
   order: any;
 
-  pagarPedido(order: Order): void {
-    // Implemente aqui a lógica para pagar o pedido
-    this.orderService.setStatusOrder(order, 'Pago');
-    alert(`Pedido Pago!\nNúmero de Pedido: ${order.id}`);
-  }
+pagarPedido(order: Order): void {
+  this.orderService.setStatusOrder(order, 'Pago');
+  this.orderService.updateOrder(order); // Salva a alteração no local storage
+  alert(`Pedido Pago!\nNúmero de Pedido: ${order.id}`);
+}
 
-  cancelarPedido(order: Order): void {
-    // Implemente aqui a lógica para cancelar o pedido
-    this.orderService.setStatusOrder(order, 'Cancelado');
-    alert(`Pedido Cancelado!\nNúmero de Pedido: ${order.id}`);
-  }
+cancelarPedido(order: Order): void {
+  this.orderService.setStatusOrder(order, 'Cancelado');
+  this.orderService.updateOrder(order); // Salva a alteração no local storage
+  alert(`Pedido Cancelado!\nNúmero de Pedido: ${order.id}`);
+}
   
 }
