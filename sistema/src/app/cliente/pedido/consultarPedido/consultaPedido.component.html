@@ -26,12 +26,13 @@
         <div *ngIf="pedido" class="details">
             <h3>Detalhes do Pedido {{ pedido.id }}</h3>
             <p>Status: {{ pedido.status }}</p>
-            <p>Valor Total: R$ {{ pedido.valorTotal }},00</p>
-            <p>Prazo: {{ pedido.prazo }} minutos</p>
+            <p>Valor Total: R$ {{ pedido.value }},00</p>
+            <p>Prazo: {{ pedido.time }} minutos</p>
 
             <h4>Roupas no Pedido:</h4>
             <ul>
-                <li *ngFor="let roupa of pedido.roupas">{{ roupa.nome }} - Quantidade: {{ roupa.quantidade }}</li>
+                <li *ngFor="let clothing of pedido.clothings">{{ clothing.name }} - Quantidade: {{ clothing.quantity }}
+                </li>
             </ul>
         </div>
     </div>
