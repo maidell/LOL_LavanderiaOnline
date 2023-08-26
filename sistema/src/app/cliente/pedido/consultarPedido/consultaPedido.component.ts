@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Order } from 'src/app/models/order.model';
+import { OrderService } from 'src/app/services/order.service';
 
 @Component({
   selector: 'app-consulta-pedido',
@@ -7,20 +9,13 @@ import { Component } from '@angular/core';
 })
 export class ConsultaPedidoComponent {
   pedidoNumero: number | undefined;
-  pedido: any;
+  pedido: Order | undefined;
+
+  constructor(private orderService: OrderService) {}
 
   consultarPedido() {
-    
-    // Exemplo hipotético de atribuição:
-    this.pedido = {
-      id: 123,
-      status: 'Entregue',
-      valorTotal: 150,
-      prazo: 120,
-      roupas: [
-        { nome: 'Camisa', quantidade: 2 },
-        { nome: 'Calça', quantidade: 1 }
-      ]
-    };
+    if (this.pedidoNumero) {
+      this.pedido = this.orderService.getOrderById(this.pedidoNumero);
+    }
   }
 }
