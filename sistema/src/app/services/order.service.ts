@@ -3,14 +3,21 @@ import { Clothing } from '../models/clothing.model';
 import { Order } from '../models/order.model';
 import { LocalStorageService } from './LocalStorageService';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class OrderService {
+  
+
+  
 
   listOrder: Order[] = [];
 
-   constructor(private localStorageService: LocalStorageService) {
+  constructor(
+    
+    private localStorageService: LocalStorageService
+  ) {
     this.listOrder = this.localStorageService.getOrders();
   }
 

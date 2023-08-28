@@ -1,5 +1,5 @@
 export * from './cliente.module';
-export * from './dashboard';
+export * from '../dashboard';
 export * from './pedido';
 export * from './layout';
-export * from './navbar';
+

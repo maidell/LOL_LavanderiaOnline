@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Pedidos em Aberto - LOL Lavanderia Online</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body d-flex flex-column>
+    <div class="container mt-4">
+        <app-navbar></app-navbar>
+    </div>
+
+    <ng-container *ngIf="isEmployee; else customerLinks">
+        <div class="container mt-4 flex-grow-1">
+        <div class="alert alert-info mt-3">
+            <h1>Em construção</h1>
+        </div>
+    </div>
+    </ng-container>
+    <ng-template #customerLinks>
+        <div class="container mt-4 flex-grow-1">
+            <ng-container *ngIf="orderService.hasPendingOrders(); else noOrders">
+                <app-listar-pedido></app-listar-pedido>
+            </ng-container>
+            <ng-template #noOrders>
+                <div class="alert alert-info mt-3">
+                    Não há nenhum pedido.
+                </div>
+                <button class="btn btn-primary mt-2" routerLink="/novo-pedido">Novo Pedido</button>
+            </ng-template>
+
+        </div>
+    </ng-template>
+
+</body>
+
+</html>
