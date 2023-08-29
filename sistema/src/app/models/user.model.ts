@@ -1,17 +1,18 @@
-export interface User {
-    id: number;
-    name: string;
-    email: string;
-    password: string;
-    cpf: string;
-    cep: string;
-    rua: string;
-    numero: string;
-    bairro: string;
-    cidade: string;
-    estado: string;
-    celular: string;
-    salt: string;
-    role: 'cliente' | 'funcionario';
+export class User {
+    
+    id: number | undefined;
+    name: string | undefined;
+    email: string | undefined;
+    password!: string;
+    cpf: string | undefined;
+    cep: string | undefined;
+    rua: string | undefined;
+    numero: string | undefined;
+    bairro: string | undefined;
+    cidade: string | undefined;
+    estado: string | undefined;
+    celular: string | undefined;
+    salt: string = '';
+    role: 'cliente' | 'funcionario' | undefined;
   }
   

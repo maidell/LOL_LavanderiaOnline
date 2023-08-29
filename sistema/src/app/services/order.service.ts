@@ -25,13 +25,9 @@ export class OrderService {
     return new Order(time, value)
   }
 
-  setStatusOrder(order: Order, status: string) {
-    order.status = status;
-  }
   
-  setClothing(order: Order, clothing: Clothing){
-    order.clothings.push(clothing);
-  }
+  
+  
   
   addOrder(order: Order): void {
     this.listOrder.push(order);

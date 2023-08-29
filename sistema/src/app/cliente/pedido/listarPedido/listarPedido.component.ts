@@ -13,13 +13,13 @@ export class ListarPedidoComponent {
   order: any;
 
   pagarPedido(order: Order): void {
-    this.orderService.setStatusOrder(order, 'Pago');
+    order.setStatusOrder('Pago');
     this.orderService.updateOrder(order);
     alert(`Pedido Pago!\nNúmero de Pedido: ${order.id}`);
   }
 
   cancelarPedido(order: Order): void {
-    this.orderService.setStatusOrder(order, 'Cancelado');
+    order.setStatusOrder('Cancelado');
     this.orderService.updateOrder(order);
     alert(`Pedido Cancelado!\nNúmero de Pedido: ${order.id}`);
   }
