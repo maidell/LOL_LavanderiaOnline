@@ -12,6 +12,7 @@ import { DashboardComponent, LayoutComponent } from './cliente';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { AuthService } from './services';
+import { PedidoModule } from './funcionario/pedido/pedido.module';
 
 
 @NgModule({
@@ -26,8 +27,7 @@ import { AuthService } from './services';
     NavbarComponent,
     DashboardComponent,
     FooterComponent,
-    
-    
+
   ],
 
   imports: [
@@ -40,7 +40,7 @@ import { AuthService } from './services';
       { path: 'listar-pedido', component: Pedido.ListarPedidoComponent},
       { path: 'consulta-pedido', component: Pedido.ConsultaPedidoComponent},
       { path: 'dashboard', component: DashboardComponent},
-      
+
     ]),
     AppRoutingModule,
     BrowserModule,

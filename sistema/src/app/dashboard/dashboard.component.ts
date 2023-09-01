@@ -11,6 +11,7 @@ export class DashboardComponent implements OnInit {
 
   constructor(public orderService: OrderService, private authService: AuthService) { }
   listOrder: Order[] = this.orderService.listOrder
+  listOpenOrder: Order[] = this.orderService.listOrder.filter(o => o.status == 'Em Aberto');
   isEmployee: boolean = false;
 
   ngOnInit(): void {
