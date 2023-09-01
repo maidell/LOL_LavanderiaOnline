@@ -13,13 +13,14 @@ export class ListarPedidoComponent {
   order: any;
 
   pagarPedido(order: Order): void {
-    order.setStatusOrder('Pago');
+    console.log(order);
+    order.status = 'Pago';
     this.orderService.updateOrder(order);
     alert(`Pedido Pago!\nNúmero de Pedido: ${order.id}`);
   }
 
   cancelarPedido(order: Order): void {
-    order.setStatusOrder('Cancelado');
+    order.status = 'Cancelado';
     this.orderService.updateOrder(order);
     alert(`Pedido Cancelado!\nNúmero de Pedido: ${order.id}`);
   }

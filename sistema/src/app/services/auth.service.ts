@@ -3,6 +3,8 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 import * as CryptoJS from 'crypto-js';
 import { User } from '../models';
 
+const USERS_KEY = 'current_user';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -16,6 +18,7 @@ export class AuthService {
   constructor() {
     this.initializeUsers();
   }
+
 
   private initializeUsers() {
     this.users = [
@@ -96,14 +99,14 @@ export class AuthService {
         cidade: 'Cidade Joana',
         estado: 'EM',
         celular: '(99) 45678-9012',
-        salt: '', 
+        salt: '',
         role: 'cliente'
       },
       {
         id: 6,
         name: 'Joaquina',
         email: 'joaquina@cliente.com',
-        password: '', 
+        password: '',
         cpf: '777.888.999-11',
         cep: '23456-789',
         rua: 'Rua Joaquina',
@@ -112,7 +115,7 @@ export class AuthService {
         cidade: 'Cidade Joaquina',
         estado: 'EM',
         celular: '(77) 23456-7890',
-        salt: '', 
+        salt: '',
         role: 'cliente'
       },
     ];
@@ -124,6 +127,7 @@ export class AuthService {
       user.password = hashedPassword;
     });
   }
+
   login(email: string, password: string): Observable<User | null> {
     const user = this.users.find(u => u.email === email);
 
@@ -132,12 +136,12 @@ export class AuthService {
 
         if (hashedPassword === user.password) {
             this.currentUser = user; // Define o usuário autenticado
+            localStorage.setItem(USERS_KEY, JSON.stringify(this.currentUser));
             return of(user);
         }
     }
     return of(null);
 }
-
 
   register(user: User): Observable<User | null> {
     const salt = CryptoJS.lib.WordArray.random(16).toString();
@@ -152,12 +156,13 @@ export class AuthService {
 
   private currentUser: User | null = null;
   getCurrentUser(): User | null {
-    return this.currentUser;
+    const user = localStorage.getItem(USERS_KEY);
+    return user ? JSON.parse(user) : null;
   }
 
   isEmployee(): boolean | null {
     const user = this.getCurrentUser();
-    
+
     if (user && user.role === 'funcionario') {
       return true;
     }
