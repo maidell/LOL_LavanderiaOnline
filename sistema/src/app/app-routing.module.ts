@@ -3,7 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { AutocadastroComponent } from './autocadastro/autocadastro.component';
 import * as Pedido from './cliente/pedido';
 import { LoginComponent } from './login/login.component';
-import { NavbarComponent, DashboardComponent } from './cliente';
+import { DashboardComponent } from './cliente';
+import { NavbarComponent } from './navbar';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -14,6 +16,7 @@ const routes: Routes = [
   { path: 'listarpedido',component: Pedido.ListarPedidoComponent},
   { path: 'dashboard',component: DashboardComponent},
   { path: 'consultapedido',component: Pedido.ConsultaPedidoComponent},
+  
 ];
 
 @NgModule({

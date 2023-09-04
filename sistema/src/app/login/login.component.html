@@ -12,22 +12,27 @@
 		<div class="login_box">
 			<div class="left">
 				<div class="contact">
-					<form action="">
+					<form>
 						<h3>BEM-VINDO</h3>
-						<input type="text" placeholder="Usuário">
+						<div class="alert alert-danger" *ngIf="loginError">
+							Usuário ou senha incorretos, tente novamente!
+						</div>
+						<input type="text" [(ngModel)]="email" name="email" placeholder="Usuário">
+						<!-- Adicione o atributo name -->
 						<div>
 							<div class="password-container">
-								<input [type]="passwordVisible ? 'text' : 'password'" [(ngModel)]="password" placeholder="Senha">
+								<input [type]="passwordVisible ? 'text' : 'password'" [(ngModel)]="password"
+									name="password" placeholder="Senha"> <!-- Adicione o atributo name -->
 								<span class="password-toggle" (click)="togglePasswordVisibility()">
-								  <img [src]="passwordVisible ? 'assets/img/eye-open.svg' : 'assets/img/eye-closed.svg'" alt="Toggle Password" class="eye-icon">
+									<img [src]="passwordVisible ? 'assets/img/eye-open.svg' : 'assets/img/eye-closed.svg'"
+										alt="Toggle Password" class="eye-icon">
 								</span>
-							  </div>
-							  
-							  
+							</div>
 						</div>
 						<div class="botoes">
-							<a routerLink="/dashboard" title=""> <button class="submit"> Fazer Login</button> </a>
-							<a routerLink="/autocadastro" title=""> <button class="submit"> Cadastre-se</button> </a>
+							<button class="submit" (click)="Login()">Fazer Login</button>
+							<!-- se login falhar aparece "Usuário ou senha incorretos, tente novamente!" -->
+							<a routerLink="/autocadastro" title=""><button class="submit">Cadastre-se</button></a>
 						</div>
 					</form>
 				</div>
