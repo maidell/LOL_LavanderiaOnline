@@ -26,10 +26,10 @@ export class ListarFuncionarioComponent {
 
     // ]
   }
-  remover($event: any, pessoa: Funcionario): void {
+  remover($event: any, funcionario: Funcionario): void {
     $event.preventDefault();
-    if (confirm(`Deseja realmente remover a pessoa ${pessoa.nome}?`)) {
-    this.funcionarioService.remover(pessoa.id!);
+    if (confirm(`Deseja realmente remover o funcionario ${funcionario.nome}?`)) {
+    this.funcionarioService.remover(funcionario.id!);
     this.Funcionarios = this.listarTodos();
     }
     }

@@ -24,7 +24,7 @@
         <tr>
             <th>Id</th>
             <th>Nome</th>
-            <th>Idade</th>
+            <th>Email</th>
             <th class="text-center">
                 <a [routerLink]="['/funcionarios/novo']" href="#" title="Novo" alt="Novo" class="btn btn-xs btn-success">
                     <i class="fa fa-plus" aria-hidden="true"></i> Novo
@@ -34,7 +34,7 @@
         <tr *ngFor="let pessoa of Funcionarios">
             <td> {{pessoa.id}} </td>
             <td> {{pessoa.nome}} </td>
-            <td> {{pessoa.idade}} </td>
+            <td> {{pessoa.email}} </td>
             <td class="text-center" style="width: 345px">
                 <a [routerLink]="['/funcionarios/editar', pessoa.id]" href="#" title="Editar" alt="Editar"
                     class="btn btn-xs btn-info">
