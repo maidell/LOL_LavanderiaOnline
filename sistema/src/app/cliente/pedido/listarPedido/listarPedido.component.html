@@ -1,59 +1,117 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meus Pedidos - LOL Lavanderia Online</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meus Pedidos - LOL Lavanderia Online</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
+
 <body class="d-flex flex-column">
-    <header class="bg-dark text-white text-center py-4">
-        <h1>Meus Pedidos</h1>
-    </header>
-    <div class="container mt-4">
-        <app-navbar></app-navbar>
-    </div>
-    <div class="container mt-4 flex-grow-1">
-        <div *ngFor="let order of listOrder" class="border rounded p-3 mb-3"
-                [ngClass]="{'background-orange': order.status === 'Pago', 'background-red': order.status === 'Rejeitado' || order.status === 'Cancelado'}">
-            <div class="row">
-                <h2 class="col md-3">Pedido {{ order.id }}</h2>
-                <button *ngIf="order.status === 'Em Aberto'" class="col col-lg-2 btn btn-warning" (click)="pagarPedido(order)" >Pagar Pedido</button>
-                <button *ngIf="order.status === 'Em Aberto'" class="col col-lg-2 btn btn-danger ml-2" (click)="cancelarPedido(order)">Cancelar Pedido</button>
-            </div>
-            
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Status</th>
-                        <th>Valor</th>
-                        <th>Prazo</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>{{ order.status }}</td>
-                        <td>R$ {{ order.value }},00</td>
-                        <td>{{ order.time }} minutos</td>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Tipo de Roupa</th>
-                        <th>Quantidade</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let clothing of order.clothings">
-                        <td>{{ clothing.name }}</td>
-                        <td>{{ clothing.quantity }}</td>
-                    </tr>
-                </tbody>
-            </table>
+  <header class="bg-dark text-white text-center py-4">
+    <h1>Meus Pedidos</h1>
+  </header>
+  <div class="container mt-4">
+    <app-navbar></app-navbar>
+  </div>
+  
+  <div class="container mt-4">
+    <div *ngFor="let order of listOrder" class="border rounded p-3 mb-3" [ngClass]="{
+    'background-orange': order.status === 'Pago', 
+    'background-red': order.status === 'Rejeitado' || order.status === 'Cancelado',
+    'background-green': order.status === 'Finalizado',
+    'background-blue': order.status === 'Aguardando pagamento',
+    'background-gray': order.status === 'Recolhido',
+    'background-yellow': order.status === 'Em Aberto'
+    }">
+    <ng-container *ngIf="isEmployee; else customerLinks">
+      <div *ngFor="let order of listOrder" class="border rounded p-3 mb-3">
+        <div class="row">
+          <h2 class="col-md-3">Pedido {{ order.id }}</h2>
+          <button *ngIf="order.status === 'Em Aberto'" class="col col-lg-2 btn btn-warning"
+            (click)="recolherPedido(order)">Recolher</button>
         </div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Status</th>
+              <th>Valor</th>
+              <th>Prazo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ order.status }}</td>
+              <td>R$ {{ order.value }},00</td>
+              <td>{{ order.time }} minutos</td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Tipo de Roupa</th>
+              <th>Quantidade</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let clothing of order.clothings">
+              <td>{{ clothing.name }}</td>
+              <td>{{ clothing.quantity }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </ng-container>
+
+    <ng-template #customerLinks>
+      <div class="container mt-4 flex-grow-1">
+
+          <div class="row">
+            <h2 class="col-md-7">Pedido {{ order.id }}</h2>
+            <button *ngIf="order.status === 'Em Aberto'" class="col col-lg-2 btn btn-warning"
+              (click)="pagarPedido(order)">Pagar Pedido</button>
+            <button *ngIf="order.status === 'Em Aberto'" class="col col-lg-2 btn btn-danger ml-2"
+              (click)="cancelarPedido(order)">Cancelar Pedido</button>
+          </div>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Status</th>
+                <th>Valor</th>
+                <th>Prazo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{ order.status }}</td>
+                <td>R$ {{ order.value }},00</td>
+                <td>{{ order.time }} minutos</td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Tipo de Roupa</th>
+                <th>Quantidade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let clothing of order.clothings">
+                <td>{{ clothing.name }}</td>
+                <td>{{ clothing.quantity }}</td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </ng-template>
     </div>
-    
+  </div>
+
 </body>
+
 </html>
