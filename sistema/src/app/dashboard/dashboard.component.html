@@ -23,8 +23,7 @@
         Não há nenhum pedido em aberto.
 
       </div>
-      <ng-container *ngIf="isEmployee; else customerLinks">
-      </ng-container>
+      <ng-container *ngIf="isEmployee; else customerLinks"></ng-container>
       <ng-template #customerLinks>
         <button class="btn btn-primary mt-2" routerLink="/novo-pedido">Novo Pedido</button>
       </ng-template>

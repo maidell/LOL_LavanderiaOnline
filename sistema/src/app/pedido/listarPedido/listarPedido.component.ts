@@ -12,7 +12,7 @@ export class ListarPedidoComponent implements OnInit{
   listOrder: Order[] = this.orderService.listOrder;
   isEmployee: boolean = false;
   order: any;
-  selectedOrderStatus: string = '';
+  
   
 
   ngOnInit(): void {
@@ -40,17 +40,6 @@ export class ListarPedidoComponent implements OnInit{
     this.orderService.updateOrder(order);
     alert(`Pedido Recolhido!\nNúmero de Pedido: ${order.id}`);
   }
-  foundMatchStatus(orderStatus: string): boolean {
-    if (!this.selectedOrderStatus) {
-      return true; 
-    }
-    return orderStatus === this.selectedOrderStatus; 
-  }
-  noMacthesFound(): boolean {
-    if (!this.selectedOrderStatus) {
-      return false; 
-    }
-    return this.listOrder.every(o => o.status !== this.selectedOrderStatus);
-  }
+  
   
 }

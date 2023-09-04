@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ConsultarPedidoComponent } from './consultar-pedido/consultar-pedido.component';
-
-
+import { FilterComponent } from './filter/filter.component';
 
 @NgModule({
   declarations: [
-    ConsultarPedidoComponent
+  
+    
   ],
   imports: [
     CommonModule

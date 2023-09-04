@@ -6,13 +6,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AutocadastroComponent } from './autocadastro/autocadastro.component';
 import { LoginComponent } from './login/login.component';
-import * as Pedido from './cliente/pedido';
+import * as Pedido from './pedido';
 import { FormsModule } from '@angular/forms';
 import { DashboardComponent, LayoutComponent } from './cliente';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { AuthService } from './services';
-import { PedidoModule } from './funcionario/pedido/pedido.module';
+
 
 
 @NgModule({
@@ -27,6 +27,7 @@ import { PedidoModule } from './funcionario/pedido/pedido.module';
     NavbarComponent,
     DashboardComponent,
     FooterComponent,
+    Pedido.FilterComponent
 
   ],
 

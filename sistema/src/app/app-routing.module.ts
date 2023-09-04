@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AutocadastroComponent } from './autocadastro/autocadastro.component';
-import * as Pedido from './cliente/pedido';
+import * as Pedido from './pedido';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './cliente';
 import { NavbarComponent } from './navbar';

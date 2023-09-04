@@ -1,0 +1,20 @@
+<div class="container mt-4">
+    <select [(ngModel)]="selectedOrderStatus" class="form-control">
+        <option value="">Todos os os pedidos</option>
+        <option value="Em Aberto">Em Aberto</option>
+        <option value="Recolhido">Recolhido</option>
+        <option value="Rejeitado">Rejeitado</option>
+        <option value="Cancelado">Cancelado</option>
+        <option value="Aguardando pagamento">Aguardando pagamento</option>
+        <option value="Pago">Pago</option>
+        <option value="Finalizado">Finalizado</option>
+    </select>
+</div>
+
+<div class="container mt-4">
+<div *ngIf="noMacthesFound()">
+    <div class="alert alert-info mt-3">
+        Não há nenhum pedido com o status que você selecionou!
+    </div>
+</div>
+</div>

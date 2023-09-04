@@ -17,24 +17,11 @@
     <app-navbar></app-navbar>
   </div>
 
-  <div class="container mt-4">
-    <select [(ngModel)]="selectedOrderStatus" class="form-control">
-      <option value="">Todos os Estados</option>
-      <option value="Em Aberto">Em Aberto</option>
-      <option value="Recolhido">Recolhido</option>
-      <option value="Rejeitado">Rejeitado</option>
-      <option value="Cancelado">Cancelado</option>
-      <option value="Aguardando pagamento">Aguardando pagamento</option>
-      <option value="Pago">Pago</option>
-      <option value="Finalizado">Finalizado</option>
-    </select>
-  </div>
+ <app-filter></app-filter>
 
   <div class="container mt-4">
     <ng-container *ngFor="let order of listOrder">
-      <div *ngIf="foundMatchStatus(order.status)"
-        class="border rounded p-3 mb-3"
-        [ngClass]="{
+      <div class="border rounded p-3 mb-3" [ngClass]="{
           'background-orange': order.status === 'Pago',
           'background-red': order.status === 'Rejeitado' || order.status === 'Cancelado',
           'background-green': order.status === 'Finalizado',
@@ -43,7 +30,7 @@
           'background-yellow': order.status === 'Em Aberto'
         }">
         <ng-container *ngIf="isEmployee; else customerLinks">
-          <div *ngFor="let order of listOrder" class="border rounded p-3 mb-3">
+          
             <div class="row">
               <h2 class="col-md-3">Pedido {{ order.id }}</h2>
               <button *ngIf="order.status === 'Em Aberto'" class="col col-lg-2 btn btn-warning"
@@ -79,7 +66,7 @@
                 </tr>
               </tbody>
             </table>
-          </div>
+          
         </ng-container>
 
         <ng-template #customerLinks>
@@ -125,11 +112,8 @@
         </ng-template>
       </div>
     </ng-container>
-    <div *ngIf="noMacthesFound()">
-      <div class="alert alert-info mt-3">
-        Não há nenhum pedido com o status que você selecionou!
-      </div>
-    </div>
+    
+    
   </div>
 </body>
 
