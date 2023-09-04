@@ -42,6 +42,7 @@
                   <th>Status</th>
                   <th>Valor</th>
                   <th>Prazo</th>
+                  <th>Criado em:</th>
                 </tr>
               </thead>
               <tbody>
@@ -49,6 +50,7 @@
                   <td>{{ order.status }}</td>
                   <td>R$ {{ order.value }},00</td>
                   <td>{{ order.time }} minutos</td>
+                  <td>{{ order.openDate | date: 'dd/MM/yyyy - HH:mm'}}</td>
                 </tr>
               </tbody>
             </table>
@@ -84,6 +86,8 @@
                   <th>Status</th>
                   <th>Valor</th>
                   <th>Prazo</th>
+                  <th>Criado em:</th>
+                  <th *ngIf="order.status === 'Finalizado'">Finalizado em:</th>
                 </tr>
               </thead>
               <tbody>
@@ -91,6 +95,8 @@
                   <td>{{ order.status }}</td>
                   <td>R$ {{ order.value }},00</td>
                   <td>{{ order.time }} minutos</td>
+                  <td>{{ order.openDate | date: 'dd/MM/yyyy - HH:mm'}}</td>
+                  <td *ngIf="order.status === 'Finalizado'">{{ order.closeDate | date: 'dd/MM/yyyy - HH:mm'}}</td>
                 </tr>
               </tbody>
             </table>

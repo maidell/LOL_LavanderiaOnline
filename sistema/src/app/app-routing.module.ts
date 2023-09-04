@@ -7,6 +7,9 @@ import { DashboardComponent } from './cliente';
 import { NavbarComponent } from './navbar';
 
 
+import * as Funcionario from './funcionario';
+
+
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full'},
   { path: 'login',component: LoginComponent},
@@ -16,6 +19,12 @@ const routes: Routes = [
   { path: 'listarpedido',component: Pedido.ListarPedidoComponent},
   { path: 'dashboard',component: DashboardComponent},
   { path: 'consultapedido',component: Pedido.ConsultaPedidoComponent},
+  
+  { path: 'funcionarios/listar',component: Funcionario.ListarFuncionarioComponent},
+  { path: 'funcionarios/editar/:id',component: Funcionario.EditarFuncionarioComponent},
+  { path: 'funcionarios/novo',component: Funcionario.InserirFuncionarioComponent},
+  
+  
   
 ];
 

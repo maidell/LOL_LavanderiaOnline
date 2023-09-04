@@ -51,6 +51,7 @@ export class NovoPedidoComponent {
     this.orderNumberCounter++;
 
     this.newOrder.time = this.time;
+    this.newOrder.openDate = new Date();
     this.insertClothes(this.newOrder);
     this.showOrcamento = true;
   }

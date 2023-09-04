@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class ListarPedidoComponent implements OnInit{
   constructor(public orderService: OrderService, private authService: AuthService) { }
+  
   listOrder: Order[] = this.orderService.listOrder;
   isEmployee: boolean = false;
   order: any;
@@ -16,8 +17,12 @@ export class ListarPedidoComponent implements OnInit{
   
 
   ngOnInit(): void {
-
     this.listOrder = this.orderService.listOrder;
+    this.listOrder.sort((a, b) => {
+      const dateA = new Date(a.openDate);
+      const dateB = new Date(b.openDate);
+      return dateB.getTime() - dateA.getTime();
+    });
     this.isEmployee = !!this.authService.isEmployee();
     
   }
