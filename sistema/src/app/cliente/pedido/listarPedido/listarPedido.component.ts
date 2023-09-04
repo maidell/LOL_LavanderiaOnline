@@ -8,20 +8,21 @@ import { OrderService } from 'src/app/services/order.service';
   styleUrls: ['./listarPedido.component.scss']
 })
 export class ListarPedidoComponent {
-  constructor(public orderService: OrderService){ }
+  constructor(public orderService: OrderService) { }
   listOrder: Order[] = this.orderService.listOrder;
   order: any;
 
   pagarPedido(order: Order): void {
-    // Implemente aqui a lógica para pagar o pedido
-    this.orderService.setStatusOrder(order, 'Pago');
+    console.log(order);
+    order.status = 'Pago';
+    this.orderService.updateOrder(order);
     alert(`Pedido Pago!\nNúmero de Pedido: ${order.id}`);
   }
 
   cancelarPedido(order: Order): void {
-    // Implemente aqui a lógica para cancelar o pedido
-    this.orderService.setStatusOrder(order, 'Cancelado');
+    order.status = 'Cancelado';
+    this.orderService.updateOrder(order);
     alert(`Pedido Cancelado!\nNúmero de Pedido: ${order.id}`);
   }
-  
+
 }

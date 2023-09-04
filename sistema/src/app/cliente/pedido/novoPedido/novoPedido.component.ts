@@ -25,11 +25,11 @@ export class NovoPedidoComponent {
   value: number = 0;
   time: number = 0;
   newOrder: Order = new Order(0, 0);
-order: any;
-  
+  order: any;
+
   constructor(private orderService: OrderService) { }
   private orderNumberCounter: number = 1;
-  
+
   calculateValue(): void {
     this.value = this.clothesList.reduce((sum, item) => sum + (item.quantity * item.price), 0);
   }
@@ -41,6 +41,7 @@ order: any;
     }
     this.time = short;
   }
+
 
   generateOrder(): void {
     this.calculateTime();
@@ -55,24 +56,28 @@ order: any;
   }
 
   insertClothes(order: Order): void {
+    console.log(order);
     for (let clothing of this.clothesList) {
-      if (clothing.quantity > 0){
-        this.orderService.setClothing(order, clothing);
+      if (clothing.quantity > 0) {
+        let copyClothing = { ...clothing };
+        order.addClothing(copyClothing);
       }
     }
+    console.log(order);
   }
-  
+
   sendOrder(): void {
     this.showOrcamento = false;
     this.orderService.addOrder(this.newOrder);
     alert(`Orçamento Aprovado!\nNúmero de Pedido: ${this.newOrder.id}`);
+    
     this.clothesList.forEach(item => item.quantity = 0);
     this.value = 0;
     this.time = 0;
     this.showOrcamento = false;
   }
 
-  declineOrder(): void{
+  declineOrder(): void {
     this.showOrcamento = false;
     this.newOrder.status = 'Rejeitado';
     this.orderService.addOrder(this.newOrder);
@@ -81,6 +86,6 @@ order: any;
     this.value = 0;
     this.time = 0;
     this.showOrcamento = false;
-    }
-  
+  }
+
 }

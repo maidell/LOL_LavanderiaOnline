@@ -9,8 +9,11 @@ import { LoginComponent } from './login/login.component';
 import * as Pedido from './cliente/pedido';
 import { FormsModule } from '@angular/forms';
 import { DashboardComponent, LayoutComponent } from './cliente';
-import { NavbarComponent } from './cliente';
+import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
+import { AuthService } from './services';
+import { PedidoModule } from './funcionario/pedido/pedido.module';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +26,8 @@ import { FooterComponent } from './footer/footer.component';
     LayoutComponent,
     NavbarComponent,
     DashboardComponent,
-    FooterComponent
+    FooterComponent,
+
   ],
 
   imports: [
@@ -35,7 +39,8 @@ import { FooterComponent } from './footer/footer.component';
       { path: 'novo-pedido', component: Pedido.NovoPedidoComponent},
       { path: 'listar-pedido', component: Pedido.ListarPedidoComponent},
       { path: 'consulta-pedido', component: Pedido.ConsultaPedidoComponent},
-      { path: 'DashboardComponent', component: DashboardComponent}
+      { path: 'dashboard', component: DashboardComponent},
+
     ]),
     AppRoutingModule,
     BrowserModule,
