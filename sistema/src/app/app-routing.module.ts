@@ -8,6 +8,7 @@ import { NavbarComponent } from './navbar';
 
 
 import * as Funcionario from './funcionario';
+import * as Roupas from './roupas';
 
 
 const routes: Routes = [
@@ -23,6 +24,10 @@ const routes: Routes = [
   { path: 'funcionarios/listar',component: Funcionario.ListarFuncionarioComponent},
   { path: 'funcionarios/editar/:id',component: Funcionario.EditarFuncionarioComponent},
   { path: 'funcionarios/novo',component: Funcionario.InserirFuncionarioComponent},
+  
+  { path: 'roupas/listar',component: Roupas.ListarRoupaComponent},
+  { path: 'roupas/editar/:id',component: Roupas.EditarRoupaComponent},
+  { path: 'roupas/novo',component: Roupas.InserirRoupaComponent},
   
   
   
