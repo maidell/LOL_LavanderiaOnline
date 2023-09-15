@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - LOL Lavanderia Online</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body class="d-flex flex-column">
+  <div class="container mt-4">
+    <app-navbar></app-navbar>
+  </div>
+  <div class="container mt-4 flex-grow-1">
+    <div>
+      Página Inicial do Funcionário
+    </div>
+    
+    <h2>Pedidos Em Aberto para Recolhimento:</h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Número do Pedido</th>
+          <th>Status</th>
+          <th>Data de Abertura</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of listOrder">
+<ng-container *ngIf="order.status === 'Em Aberto'">
+            <td>{{ order.id }}</td>
+            <td>{{ order.status }}</td>
+            <td>{{ order.openDate | date: 'dd/MM/yyyy - HH:mm' }}</td>
+            <td>
+              <button class="btn btn-warning" (click)="recolherPedido(order)">Recolher</button>
+            </td>
+          </ng-container>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+
+
+</html>

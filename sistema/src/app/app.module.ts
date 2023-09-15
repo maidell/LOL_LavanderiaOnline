@@ -13,6 +13,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { AuthService } from './services';
 import * as Funcionario from './funcionario';
+import { DashboardFuncioComponent } from './dashboardFuncionario';
 
 
 
@@ -27,6 +28,7 @@ import * as Funcionario from './funcionario';
     LayoutComponent,
     NavbarComponent,
     DashboardComponent,
+    DashboardFuncioComponent,
     FooterComponent,
     Pedido.FilterComponent,
     Funcionario.InserirFuncionarioComponent,
@@ -38,14 +40,14 @@ import * as Funcionario from './funcionario';
 
   imports: [
     RouterModule.forRoot([
-      { path: '', redirectTo: '/login', pathMatch: 'full'},
-      { path: 'navbar', component: NavbarComponent},
-      { path: 'login', component: LoginComponent},
-      { path: 'autocadastro', component: AutocadastroComponent},
-      { path: 'novo-pedido', component: Pedido.NovoPedidoComponent},
-      { path: 'listar-pedido', component: Pedido.ListarPedidoComponent},
-      { path: 'consulta-pedido', component: Pedido.ConsultaPedidoComponent},
-      { path: 'dashboard', component: DashboardComponent},
+      { path: '', redirectTo: '/login', pathMatch: 'full' },
+      { path: 'navbar', component: NavbarComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'autocadastro', component: AutocadastroComponent },
+      { path: 'novo-pedido', component: Pedido.NovoPedidoComponent },
+      { path: 'listar-pedido', component: Pedido.ListarPedidoComponent },
+      { path: 'consulta-pedido', component: Pedido.ConsultaPedidoComponent },
+      { path: 'dashboard', component: DashboardComponent },
 
 
     ]),
