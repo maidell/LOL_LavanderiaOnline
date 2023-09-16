@@ -7,15 +7,18 @@ import { AuthService } from 'src/app/services/auth.service';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements  OnInit {
-  
-  
+export class NavbarComponent implements OnInit {
+
+
   isEmployee: boolean = false;
 
-    constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService) { }
 
-    ngOnInit(): void {
-        this.isEmployee = !!this.authService.isEmployee();
-    }
-  
+  ngOnInit(): void {
+    this.isEmployee = !!this.authService.isEmployee();
+  }
+  logout(): void {
+    this.authService.logout();
+  }
+
 }
