@@ -13,7 +13,6 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { AuthService } from './services';
 import * as Funcionario from './funcionario';
-import { DashboardFuncioComponent } from './dashboardFuncionario';
 
 
 
@@ -28,7 +27,6 @@ import { DashboardFuncioComponent } from './dashboardFuncionario';
     LayoutComponent,
     NavbarComponent,
     DashboardComponent,
-    DashboardFuncioComponent,
     FooterComponent,
     Pedido.FilterComponent,
     Funcionario.InserirFuncionarioComponent,

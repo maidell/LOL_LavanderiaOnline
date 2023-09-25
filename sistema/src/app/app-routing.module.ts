@@ -6,9 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './cliente';
 import { NavbarComponent } from './navbar';
 
-
 import * as Funcionario from './funcionario';
-import { DashboardFuncioComponent } from './dashboardFuncionario/dashboardFuncio.component';
 
 
 const routes: Routes = [
@@ -19,7 +17,6 @@ const routes: Routes = [
   { path: 'novopedido', component: Pedido.NovoPedidoComponent },
   { path: 'listarpedido', component: Pedido.ListarPedidoComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'dashboardFuncio', component: DashboardFuncioComponent },
   { path: 'consultapedido', component: Pedido.ConsultaPedidoComponent },
 
   { path: 'funcionarios/listar', component: Funcionario.ListarFuncionarioComponent },
