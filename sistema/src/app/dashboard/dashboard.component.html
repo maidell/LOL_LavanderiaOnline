@@ -11,15 +11,11 @@
 
 <body class="d-flex flex-column">
   <div class="container mt-4">
-    <app-navbar></app-navbar>
   </div>
   <div class="container mt-4 flex-grow-1">
     <ng-container *ngIf="isEmployee; else customerDashboard">
-      <!-- Dashboard do Funcionário -->
-      <div>
-        Página Inicial do Funcionário
-      </div>
-    
+      
+      <!-- Dashboard do Funcionário -->  
       <h2>Pedidos Em Aberto para Recolhimento:</h2>
       <table class="table table-striped">
         <thead>
