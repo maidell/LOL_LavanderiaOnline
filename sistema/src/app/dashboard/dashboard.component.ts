@@ -23,6 +23,12 @@ export class DashboardComponent implements OnInit {
   recolherPedido(order: Order): void {
     order.status = 'Recolhido';
     this.orderService.updateOrder(order);
+
+    const index = this.listOpenOrder.findIndex(o => o.id === order.id);
+    if (index !== -1) {
+      this.listOpenOrder.splice(index, 1);
+    }
+
     alert(`Pedido Recolhido!\nNúmero de Pedido: ${order.id}`);
   }
 }
