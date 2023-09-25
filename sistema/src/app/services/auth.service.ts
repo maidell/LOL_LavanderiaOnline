@@ -10,6 +10,7 @@ const USERS_KEY = 'current_user';
 })
 export class AuthService {
   private users: User[] = [];
+  
 
   private hashPassword(password: string, salt: string): string {
     return CryptoJS.SHA256(password + salt).toString();
@@ -162,7 +163,7 @@ export class AuthService {
 
   isEmployee(): boolean | null {
     const user = this.getCurrentUser();
-
+  
     if (user && user.role === 'funcionario') {
       return true;
     }
@@ -171,4 +172,13 @@ export class AuthService {
     }
     return null;
   }
+  isLoggedIn(): boolean {
+    console.log(this.getCurrentUser());
+   return this.getCurrentUser() !== null;
+  }
+
+  logout(): void {
+    localStorage.removeItem(USERS_KEY);
+  }
+  
 }

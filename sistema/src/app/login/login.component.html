@@ -1,47 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-</head>
-
-<body>
-	<section class="login">
-		<div class="login_box">
-			<div class="left">
-				<div class="contact">
-					<form>
-						<h3>BEM-VINDO</h3>
-						<div class="alert alert-danger" *ngIf="loginError">
-							Usuário ou senha incorretos, tente novamente!
+<section class="login fullHeight">
+	<div class="login_box">
+		<div class="left">
+			<div class="contact">
+				<form>
+					<h3>BEM-VINDO</h3>
+					<div class="alert alert-danger" *ngIf="loginError">
+						Usuário ou senha incorretos, tente novamente!
+					</div>
+					<input type="text" [(ngModel)]="email" name="email" placeholder="Usuário">
+					<!-- Adicione o atributo name -->
+					<div>
+						<div class="password-container">
+							<input [type]="passwordVisible ? 'text' : 'password'" [(ngModel)]="password" name="password"
+								placeholder="Senha"> <!-- Adicione o atributo name -->
+							<span class="password-toggle" (click)="togglePasswordVisibility()">
+								<img [src]="passwordVisible ? 'assets/img/eye-open.svg' : 'assets/img/eye-closed.svg'"
+									alt="Toggle Password" class="eye-icon">
+							</span>
 						</div>
-						<input type="text" [(ngModel)]="email" name="email" placeholder="Usuário">
-						<!-- Adicione o atributo name -->
-						<div>
-							<div class="password-container">
-								<input [type]="passwordVisible ? 'text' : 'password'" [(ngModel)]="password"
-									name="password" placeholder="Senha"> <!-- Adicione o atributo name -->
-								<span class="password-toggle" (click)="togglePasswordVisibility()">
-									<img [src]="passwordVisible ? 'assets/img/eye-open.svg' : 'assets/img/eye-closed.svg'"
-										alt="Toggle Password" class="eye-icon">
-								</span>
-							</div>
-						</div>
-						<div class="botoes">
-							<button class="submit" (click)="Login()">Fazer Login</button>
-							<!-- se login falhar aparece "Usuário ou senha incorretos, tente novamente!" -->
-							<a routerLink="/autocadastro" title=""><button class="submit">Cadastre-se</button></a>
-						</div>
-					</form>
-				</div>
-			</div>
-			<div class="right">
-				<div> <img src="assets/img/laundry.jpg" alt=""></div>
+					</div>
+					<div class="botoes">
+						<button class="submit" (click)="Login()">Fazer Login</button>
+						<!-- se login falhar aparece "Usuário ou senha incorretos, tente novamente!" -->
+						<a routerLink="/autocadastro" title=""><button class="submit">Cadastre-se</button></a>
+					</div>
+				</form>
 			</div>
 		</div>
-	</section>
-</body>
-
-</html>
+		<div class="right">
+			<div> <img src="assets/img/laundry.jpg" alt=""></div>
+		</div>
+	</div>
