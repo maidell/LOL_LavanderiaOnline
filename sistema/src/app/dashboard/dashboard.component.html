@@ -60,8 +60,8 @@
               <td>
                 <button *ngIf="order.status === 'Em Aberto'" class="btn btn-primary button-spacing"
                   (click)="pagarPedido(order)">Pagar Pedido</button>
-                <button *ngIf="order.status === 'Em Aberto' || order.status === 'Aguardando pagamento'"
-                  class="btn btn-danger ml-2" (click)="cancelarPedido(order)">Cancelar Pedido</button>
+                <button *ngIf="order.status === 'Em Aberto'" class="btn btn-danger ml-2"
+                  (click)="cancelarPedido(order)">Cancelar Pedido</button>
               </td>
             </tr>
           </tbody>
