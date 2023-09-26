@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService, OrderService } from 'src/app/services';
+import { OrderService } from 'src/app/services/order.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { Order } from '../models';
 
 @Component({
@@ -16,8 +17,9 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.listOrder = this.orderService.listOrder;
-    this.listOpenOrder = this.orderService.listOrder.filter(o => o.status == 'Em Aberto');
     this.isEmployee = !!this.authService.isEmployee();
+
+    this.listOpenOrder = this.listOrder.filter(order => order.status === 'Em Aberto');
   }
 
   recolherPedido(order: Order): void {
@@ -30,5 +32,9 @@ export class DashboardComponent implements OnInit {
     }
 
     alert(`Pedido Recolhido!\nNúmero de Pedido: ${order.id}`);
+  }
+
+  getOpenOrdersForCustomer(): Order[] {
+    return this.listOpenOrder;
   }
 }

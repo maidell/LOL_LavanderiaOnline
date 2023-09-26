@@ -13,9 +13,9 @@
   <div class="container mt-4">
   </div>
   <div class="container mt-4 flex-grow-1">
-    <ng-container *ngIf="isEmployee; else customerDashboard">
       
       <!-- Dashboard do Funcionário -->  
+    <ng-container *ngIf="isEmployee; else customerDashboard">
       <h2>Pedidos Em Aberto para Recolhimento:</h2>
       <table class="table table-striped">
         <thead>
@@ -40,16 +40,28 @@
     </ng-container>
     
     <ng-template #customerDashboard>
-      <!-- Dashboard do Cliente -->
-      <ng-container *ngIf="orderService.hasPendingOrders(); else noOrders">
-        <app-listar-pedido></app-listar-pedido>
-      </ng-container>
-      <ng-template #noOrders>
-        <div class="alert alert-info mt-3">
-          Não há nenhum pedido em aberto.
-        </div>
-        <button class="btn btn-primary mt-2" routerLink="/novo-pedido">Novo Pedido</button>
-      </ng-template>
+    <!-- Dashboard do Cliente -->
+<ng-container *ngIf="!isEmployee; else customerDashboard">
+  <h2>Pedidos Em Aberto:</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Número do Pedido</th>
+        <th>Status</th>
+        <th>Data de Abertura</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of getOpenOrdersForCustomer()">
+        <td>{{ order.id }}</td>
+        <td>{{ order.status }}</td>
+        <td>{{ order.openDate | date: 'dd/MM/yyyy - HH:mm' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</ng-container>
+
+
     </ng-template>
   </div>
 </body>
