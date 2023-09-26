@@ -37,4 +37,16 @@ export class DashboardComponent implements OnInit {
   getOpenOrdersForCustomer(): Order[] {
     return this.listOpenOrder;
   }
+
+  pagarPedido(order: Order): void {
+    order.status = 'Pago';
+    this.orderService.updateOrder(order);
+    alert(`Pedido Pago!\nNúmero de Pedido: ${order.id}`);
+  }
+
+  cancelarPedido(order: Order): void {
+    order.status = 'Cancelado';
+    this.orderService.updateOrder(order);
+    alert(`Pedido Cancelado!\nNúmero de Pedido: ${order.id}`);
+  }
 }

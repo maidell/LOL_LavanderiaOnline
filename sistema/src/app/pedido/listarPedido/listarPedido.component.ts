@@ -43,7 +43,6 @@ export class ListarPedidoComponent implements OnInit {
 
 
   pagarPedido(order: Order): void {
-    console.log(order);
     order.status = 'Pago';
     this.orderService.updateOrder(order);
     alert(`Pedido Pago!\nNúmero de Pedido: ${order.id}`);

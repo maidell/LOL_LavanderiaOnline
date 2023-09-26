@@ -13,8 +13,8 @@
   <div class="container mt-4">
   </div>
   <div class="container mt-4 flex-grow-1">
-      
-      <!-- Dashboard do Funcionário -->  
+
+    <!-- Dashboard do Funcionário -->
     <ng-container *ngIf="isEmployee; else customerDashboard">
       <h2>Pedidos Em Aberto para Recolhimento:</h2>
       <table class="table table-striped">
@@ -38,29 +38,35 @@
         </tbody>
       </table>
     </ng-container>
-    
-    <ng-template #customerDashboard>
-    <!-- Dashboard do Cliente -->
-<ng-container *ngIf="!isEmployee; else customerDashboard">
-  <h2>Pedidos Em Aberto:</h2>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Número do Pedido</th>
-        <th>Status</th>
-        <th>Data de Abertura</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let order of getOpenOrdersForCustomer()">
-        <td>{{ order.id }}</td>
-        <td>{{ order.status }}</td>
-        <td>{{ order.openDate | date: 'dd/MM/yyyy - HH:mm' }}</td>
-      </tr>
-    </tbody>
-  </table>
-</ng-container>
 
+    <ng-template #customerDashboard>
+      <!-- Dashboard do Cliente -->
+      <ng-container *ngIf="!isEmployee; else customerDashboard">
+        <h2>Pedidos Em Aberto:</h2>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Número do Pedido</th>
+              <th>Status</th>
+              <th>Data de Abertura</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let order of getOpenOrdersForCustomer()">
+              <td>{{ order.id }}</td>
+              <td>{{ order.status }}</td>
+              <td>{{ order.openDate | date: 'dd/MM/yyyy - HH:mm' }}</td>
+              <td>
+                <button *ngIf="order.status === 'Em Aberto'" class="btn btn-primary button-spacing"
+                  (click)="pagarPedido(order)">Pagar Pedido</button>
+                <button *ngIf="order.status === 'Em Aberto' || order.status === 'Aguardando pagamento'"
+                  class="btn btn-danger ml-2" (click)="cancelarPedido(order)">Cancelar Pedido</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </ng-container>
 
     </ng-template>
   </div>
