@@ -1,20 +1,75 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="pt-br">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LOL Lavanderia Online</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body class="d-flex flex-column">
+  <div class="container mt-4">
+  </div>
   <div class="container mt-4 flex-grow-1">
 
-    <ng-container *ngIf="orderService.hasPendingOrders(); else noOrders">
-      <app-listar-pedido></app-listar-pedido>
+    <!-- Dashboard do Funcionário -->
+    <ng-container *ngIf="isEmployee; else customerDashboard">
+      <h2>Pedidos Em Aberto para Recolhimento:</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Número do Pedido</th>
+            <th>Status</th>
+            <th>Data de Abertura</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of listOpenOrder">
+            <td>{{ order.id }}</td>
+            <td>{{ order.status }}</td>
+            <td>{{ order.openDate | date: 'dd/MM/yyyy - HH:mm' }}</td>
+            <td>
+              <button class="btn btn-warning" (click)="recolherPedido(order)">Recolher</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </ng-container>
-    <ng-template #noOrders>
-      <div class="alert alert-info mt-3">
-        Não há nenhum pedido em aberto.
 
-      </div>
-      <ng-container *ngIf="isEmployee; else customerLinks"></ng-container>
-      <ng-template #customerLinks>
-        <button class="btn btn-primary mt-2" routerLink="/novo-pedido">Novo Pedido</button>
-      </ng-template>
+    <ng-template #customerDashboard>
+      <!-- Dashboard do Cliente -->
+      <ng-container *ngIf="!isEmployee; else customerDashboard">
+        <h2>Pedidos Em Aberto:</h2>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Número do Pedido</th>
+              <th>Status</th>
+              <th>Data de Abertura</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let order of getOpenOrdersForCustomer()">
+              <td>{{ order.id }}</td>
+              <td>{{ order.status }}</td>
+              <td>{{ order.openDate | date: 'dd/MM/yyyy - HH:mm' }}</td>
+              <td>
+                <button *ngIf="order.status === 'Em Aberto'" class="btn btn-primary button-spacing"
+                  (click)="pagarPedido(order)">Pagar Pedido</button>
+                <button *ngIf="order.status === 'Em Aberto'" class="btn btn-danger ml-2"
+                  (click)="cancelarPedido(order)">Cancelar Pedido</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </ng-container>
 
     </ng-template>
-
   </div>
+</body>
 
+</html>

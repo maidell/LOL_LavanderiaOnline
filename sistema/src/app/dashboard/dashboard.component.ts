@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService, OrderService } from 'src/app/services';
+import { OrderService } from 'src/app/services/order.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { Order } from '../models';
 
 @Component({
@@ -8,16 +9,44 @@ import { Order } from '../models';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-
-  constructor(public orderService: OrderService, private authService: AuthService) { }
-  listOrder: Order[] = this.orderService.listOrder
-  listOpenOrder: Order[] = this.orderService.listOrder.filter(o => o.status == 'Em Aberto');
+  listOrder: Order[] = [];
+  listOpenOrder: Order[] = [];
   isEmployee: boolean = false;
 
-  ngOnInit(): void {
+  constructor(public orderService: OrderService, private authService: AuthService) { }
 
+  ngOnInit(): void {
     this.listOrder = this.orderService.listOrder;
     this.isEmployee = !!this.authService.isEmployee();
+
+    this.listOpenOrder = this.listOrder.filter(order => order.status === 'Em Aberto');
+  }
+
+  recolherPedido(order: Order): void {
+    order.status = 'Recolhido';
+    this.orderService.updateOrder(order);
+
+    const index = this.listOpenOrder.findIndex(o => o.id === order.id);
+    if (index !== -1) {
+      this.listOpenOrder.splice(index, 1);
+    }
+
+    alert(`Pedido Recolhido!\nNúmero de Pedido: ${order.id}`);
+  }
+
+  getOpenOrdersForCustomer(): Order[] {
+    return this.listOpenOrder;
+  }
+
+  pagarPedido(order: Order): void {
+    order.status = 'Pago';
+    this.orderService.updateOrder(order);
+    alert(`Pedido Pago!\nNúmero de Pedido: ${order.id}`);
+  }
+
+  cancelarPedido(order: Order): void {
+    order.status = 'Cancelado';
+    this.orderService.updateOrder(order);
+    alert(`Pedido Cancelado!\nNúmero de Pedido: ${order.id}`);
   }
 }
-
