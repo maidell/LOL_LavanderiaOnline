@@ -5,6 +5,7 @@ import * as Pedido from './pedido';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './cliente';
 import { NavbarComponent } from './navbar';
+import { RelatoriosComponent } from './relatorios'
 
 import * as Funcionario from './funcionario';
 import * as Roupas from './roupas';
@@ -19,6 +20,8 @@ const routes: Routes = [
   { path: 'listarpedido', component: Pedido.ListarPedidoComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'consultapedido', component: Pedido.ConsultaPedidoComponent },
+  { path: 'relatorios', component: RelatoriosComponent },
+
 
   { path: 'funcionarios/listar', component: Funcionario.ListarFuncionarioComponent },
   { path: 'funcionarios/editar/:id', component: Funcionario.EditarFuncionarioComponent },

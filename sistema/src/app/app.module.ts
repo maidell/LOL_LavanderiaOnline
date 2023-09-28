@@ -13,6 +13,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { AuthService } from './services';
 import * as Funcionario from './funcionario';
+import { RelatoriosComponent } from './relatorios/relatorios.component';
 
 
 
@@ -32,7 +33,7 @@ import * as Funcionario from './funcionario';
     Funcionario.InserirFuncionarioComponent,
     Funcionario.ListarFuncionarioComponent,
     Funcionario.EditarFuncionarioComponent,
-    //Funcionario.LayoutComponent
+    RelatoriosComponent
 
   ],
 
@@ -46,6 +47,7 @@ import * as Funcionario from './funcionario';
       { path: 'listar-pedido', component: Pedido.ListarPedidoComponent },
       { path: 'consulta-pedido', component: Pedido.ConsultaPedidoComponent },
       { path: 'dashboard', component: DashboardComponent },
+      { path: 'relatorios', component: RelatoriosComponent }
 
 
     ]),
