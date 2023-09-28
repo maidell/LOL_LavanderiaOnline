@@ -10,6 +10,7 @@ import { RelatoriosComponent } from './relatorios'
 import * as Funcionario from './funcionario';
 import * as Roupas from './roupas';
 import { RelatorioClientesComponent } from './relatorios/clientes';
+import { RelatorioReceitasComponent } from './relatorios/receitas';
 
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
   {
     path: 'relatorios', component: RelatoriosComponent,
     children: [
+      { path: 'relatorio-receitas', component: RelatorioReceitasComponent },
       { path: 'relatorio-clientes', component: RelatorioClientesComponent },
     ]
   },
