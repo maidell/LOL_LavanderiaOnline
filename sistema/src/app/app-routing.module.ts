@@ -9,6 +9,7 @@ import { RelatoriosComponent } from './relatorios'
 
 import * as Funcionario from './funcionario';
 import * as Roupas from './roupas';
+import { RelatorioClientesComponent } from './relatorios/clientes';
 
 
 const routes: Routes = [
@@ -20,8 +21,12 @@ const routes: Routes = [
   { path: 'listarpedido', component: Pedido.ListarPedidoComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'consultapedido', component: Pedido.ConsultaPedidoComponent },
-  { path: 'relatorios', component: RelatoriosComponent },
-
+  {
+    path: 'relatorios', component: RelatoriosComponent,
+    children: [
+      { path: 'relatorio-clientes', component: RelatorioClientesComponent },
+    ]
+  },
 
   { path: 'funcionarios/listar', component: Funcionario.ListarFuncionarioComponent },
   { path: 'funcionarios/editar/:id', component: Funcionario.EditarFuncionarioComponent },
