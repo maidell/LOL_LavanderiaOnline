@@ -11,6 +11,7 @@ import * as Funcionario from './funcionario';
 import * as Roupas from './roupas';
 import { RelatorioClientesComponent } from './relatorios/clientes';
 import { RelatorioReceitasComponent } from './relatorios/receitas';
+import { RelatorioClientesFieisComponent } from './relatorios/clientes-fieis';
 
 
 const routes: Routes = [
@@ -27,6 +28,7 @@ const routes: Routes = [
     children: [
       { path: 'relatorio-receitas', component: RelatorioReceitasComponent },
       { path: 'relatorio-clientes', component: RelatorioClientesComponent },
+      { path: 'relatorio-clientesfieis', component: RelatorioClientesFieisComponent },
     ]
   },
 
