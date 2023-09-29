@@ -25,7 +25,9 @@
     "rxjs": "~7.8.0",
     "startbootstrap-sb-admin-2": "^4.1.4",
     "tslib": "^2.3.0",
-    "zone.js": "~0.13.0"
+    "zone.js": "~0.13.0",
+    "jspdf": "^2.5",
+    "jspdf-autotable": "^3.6"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^16.1.6",
