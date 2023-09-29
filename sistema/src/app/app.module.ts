@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from "@angular/router";
+import {NgxPrintModule} from 'ngx-print';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,7 @@ import { FooterComponent } from './footer/footer.component';
 import { AuthService } from './services';
 import * as Funcionario from './funcionario';
 import { RelatoriosComponent } from './relatorios/relatorios.component';
+import { RelatorioReceitasComponent } from './relatorios/receitas';
 
 
 
@@ -33,7 +35,8 @@ import { RelatoriosComponent } from './relatorios/relatorios.component';
     Funcionario.InserirFuncionarioComponent,
     Funcionario.ListarFuncionarioComponent,
     Funcionario.EditarFuncionarioComponent,
-    RelatoriosComponent
+    RelatoriosComponent,
+    RelatorioReceitasComponent
 
   ],
 
@@ -54,6 +57,7 @@ import { RelatoriosComponent } from './relatorios/relatorios.component';
     AppRoutingModule,
     BrowserModule,
     FormsModule,
+    NgxPrintModule
   ],
   providers: [],
   bootstrap: [AppComponent]
