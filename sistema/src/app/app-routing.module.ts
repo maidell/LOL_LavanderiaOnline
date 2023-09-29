@@ -5,9 +5,13 @@ import * as Pedido from './pedido';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './cliente';
 import { NavbarComponent } from './navbar';
+import { RelatoriosComponent } from './relatorios'
 
 import * as Funcionario from './funcionario';
 import * as Roupas from './roupas';
+import { RelatorioClientesComponent } from './relatorios/clientes';
+import { RelatorioReceitasComponent } from './relatorios/receitas';
+import { RelatorioClientesFieisComponent } from './relatorios/clientes-fieis';
 
 
 const routes: Routes = [
@@ -19,6 +23,14 @@ const routes: Routes = [
   { path: 'listarpedido', component: Pedido.ListarPedidoComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'consultapedido', component: Pedido.ConsultaPedidoComponent },
+  {
+    path: 'relatorios', component: RelatoriosComponent,
+    children: [
+      { path: 'relatorio-receitas', component: RelatorioReceitasComponent },
+      { path: 'relatorio-clientes', component: RelatorioClientesComponent },
+      { path: 'relatorio-clientesfieis', component: RelatorioClientesFieisComponent },
+    ]
+  },
 
   { path: 'funcionarios/listar', component: Funcionario.ListarFuncionarioComponent },
   { path: 'funcionarios/editar/:id', component: Funcionario.EditarFuncionarioComponent },
