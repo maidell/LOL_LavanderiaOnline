@@ -10,7 +10,7 @@ const USERS_KEY = 'current_user';
 })
 export class AuthService {
   private users: User[] = [];
-  
+
 
   private hashPassword(password: string, salt: string): string {
     return CryptoJS.SHA256(password + salt).toString();
@@ -133,16 +133,16 @@ export class AuthService {
     const user = this.users.find(u => u.email === email);
 
     if (user) {
-        const hashedPassword = this.hashPassword(password, user.salt);
+      const hashedPassword = this.hashPassword(password, user.salt);
 
-        if (hashedPassword === user.password) {
-            this.currentUser = user; // Define o usuário autenticado
-            localStorage.setItem(USERS_KEY, JSON.stringify(this.currentUser));
-            return of(user);
-        }
+      if (hashedPassword === user.password) {
+        this.currentUser = user; // Define o usuário autenticado
+        localStorage.setItem(USERS_KEY, JSON.stringify(this.currentUser));
+        return of(user);
+      }
     }
     return of(null);
-}
+  }
 
   register(user: User): Observable<User | null> {
     const salt = CryptoJS.lib.WordArray.random(16).toString();
@@ -163,7 +163,7 @@ export class AuthService {
 
   isEmployee(): boolean | null {
     const user = this.getCurrentUser();
-  
+
     if (user && user.role === 'funcionario') {
       return true;
     }
@@ -174,11 +174,16 @@ export class AuthService {
   }
   isLoggedIn(): boolean {
     console.log(this.getCurrentUser());
-   return this.getCurrentUser() !== null;
+    return this.getCurrentUser() !== null;
   }
 
   logout(): void {
     localStorage.removeItem(USERS_KEY);
   }
-  
+
+  getUsersByRole(role: string): User[] {
+    return this.users.filter(user => user.role === role);
+  }
+
+
 }
