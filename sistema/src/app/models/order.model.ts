@@ -6,7 +6,6 @@ export class Order {
     status: string = 'Em Aberto';
     value: number = 0;
     closeDate: Date = new Date();
-    
     openDate: Date = new Date();
     clothings: Clothing[] = [];
 
