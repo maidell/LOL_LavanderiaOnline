@@ -11,8 +11,26 @@
 
 <body class="d-flex flex-column">
     <div class="container mt-4">
-        <h1>Relatórios de Clientes</h1>
+        <h1>Relatório de Clientes</h1>
+        <button class="btn btn-primary" (click)="generatePDF()">Gerar PDF</button>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>CPF</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let cliente of clientes">
+                    <td>{{ cliente.name }}</td>
+                    <td>{{ cliente.email }}</td>
+                    <td>{{ cliente.cpf }}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
+
 </body>
 
 </html>
