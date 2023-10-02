@@ -6,7 +6,7 @@
             </a>
             <a href="#" class="list-group-item list-group-item-action py-2 ripple" aria-current="true"
                 routerLink="/dashboard">
-                <i class="fas fa-home"></i><span>Página Inicial</span>
+                <i class="fas fa-home"></i><span> Página Inicial</span>
             </a>
             <ng-container *ngIf="isEmployee; else customerLinks">
                 <!-- Links específicos para funcionários -->
@@ -23,23 +23,20 @@
             <ng-template #customerLinks>
                 <!-- Links específicos para clientes -->
                 <a routerLink="/listar-pedido" href="#" class="list-group-item list-group-item-action py-2 ripple">
-                    <i class="fas fa-tasks"></i><span>Meus Pedidos</span></a>
+                    <i class="fas fa-tasks"></i><span> Meus Pedidos</span></a>
                 <a routerLink="/novo-pedido" href="#" class="list-group-item list-group-item-action py-2 ripple">
-                    <i class="fas fa-plus"></i><span>Novo Pedido</span>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action py-2 ripple">
-                    <i class="icon-money"></i><span>Orçamentos</span>
+                    <i class="fas fa-plus"></i><span> Novo Pedido</span>
                 </a>
                 <a routerLink="/consulta-pedido" href="#" class="list-group-item list-group-item-action py-2 ripple">
-                    <i class="fas fa-search"></i><span>Consultar Pedidos</span>
+                    <i class="fas fa-search"></i><span> Consultar Pedidos</span>
                 </a>
                 <a href="#" class="list-group-item list-group-item-action py-2 ripple">
-                    <i class="fas fa-user"></i><span>Meu Perfil</span>
+                    <i class="fas fa-user"></i><span> Meu Perfil</span>
                 </a>
             </ng-template>
             <!-- botão de sair e deslogar -->
             <a (click)="logout()" routerLink="login" class="list-group-item list-group-item-action py-2 ripple">
-                <i class="fas fa-sign-out-alt"></i><span>Sair</span></a>
+                <i class="fas fa-sign-out-alt"></i><span> Sair</span></a>
         </div>
     </div>
 </nav>

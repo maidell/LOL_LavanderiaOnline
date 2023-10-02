@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AutocadastroComponent } from './autocadastro/autocadastro.component';
 import * as Pedido from './pedido';
 import { LoginComponent } from './login/login.component';
-import { DashboardComponent } from './cliente';
+
 import { NavbarComponent } from './navbar';
 import { RelatoriosComponent } from './relatorios'
 
@@ -12,6 +12,7 @@ import * as Roupas from './roupas';
 import { RelatorioClientesComponent } from './relatorios/clientes';
 import { RelatorioReceitasComponent } from './relatorios/receitas';
 import { RelatorioClientesFieisComponent } from './relatorios/clientes-fieis';
+import { DashboardComponent } from './dashboard';
 
 
 const routes: Routes = [

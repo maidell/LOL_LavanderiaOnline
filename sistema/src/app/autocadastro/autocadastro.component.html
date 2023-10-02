@@ -1,20 +1,7 @@
-<!DOCTYPE html>
-<html dir="ltr" lang="en">
 
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="keywords"
-        content="wrappixel, admin navbar, html css navbar, web navbar, bootstrap 5 admin, bootstrap 5, css3 navbar, bootstrap 5 navbar, Ample lite admin bootstrap 5 navbar, frontend, responsive bootstrap 5 admin template, Ample admin lite navbar bootstrap 5 navbar template" />
-    <meta name="description"
-        content="Ample Admin Lite is powerful and clean admin navbar template, inpired from Bootstrap Framework" />
-    <meta name="robots" content="noindex,nofollow" />
-    <title>LOL - Lavanderia Online</title>
-</head>
 
 <body>
-    <div>
+    <ng-container *ngIf="!isLogged()">
         <div class="page-wrapper">
             <h4 class="page-title">Autocadastro</h4>
             <form>
@@ -69,10 +56,8 @@
                     </a>
                 </div>
             </form>
-            <footer class="footer text-center">2023 © LOL - Lavanderia Online</footer>
         </div>
 
-    </div>
+    </ng-container>
 </body>
 
-</html>

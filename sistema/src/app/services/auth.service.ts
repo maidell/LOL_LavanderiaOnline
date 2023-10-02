@@ -172,9 +172,18 @@ export class AuthService {
     }
     return null;
   }
-  isLoggedIn(): boolean {
-    console.log(this.getCurrentUser());
-    return this.getCurrentUser() !== null;
+  isLoggedIn(): number {
+    const user = this.getCurrentUser();
+
+    if (user && user.role === 'funcionario') {
+      return 1;
+    }
+    if (user && user.role === 'cliente') {
+      return 2;
+    }
+    else {
+      return 0;
+    }
   }
 
   logout(): void {

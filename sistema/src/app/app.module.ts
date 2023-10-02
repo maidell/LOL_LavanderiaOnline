@@ -9,13 +9,14 @@ import { AutocadastroComponent } from './autocadastro/autocadastro.component';
 import { LoginComponent } from './login/login.component';
 import * as Pedido from './pedido';
 import { FormsModule } from '@angular/forms';
-import { DashboardComponent, LayoutComponent } from './cliente';
+
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { AuthService } from './services';
 import * as Funcionario from './funcionario';
 import { RelatoriosComponent } from './relatorios/relatorios.component';
 import { RelatorioReceitasComponent } from './relatorios/receitas';
+import { DashboardComponent } from './dashboard';
 
 
 
@@ -27,7 +28,6 @@ import { RelatorioReceitasComponent } from './relatorios/receitas';
     Pedido.ListarPedidoComponent,
     Pedido.NovoPedidoComponent,
     Pedido.ConsultaPedidoComponent,
-    LayoutComponent,
     NavbarComponent,
     DashboardComponent,
     FooterComponent,

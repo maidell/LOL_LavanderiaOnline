@@ -34,4 +34,10 @@ export class LoginComponent {
       }
     });
   }
+  Autocadastro():void {
+    this.router.navigate(['/autocadastro']);
+  }
+  isLoggedIn(): number {
+    return this.authService.isLoggedIn();
+  }
 }

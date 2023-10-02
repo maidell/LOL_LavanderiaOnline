@@ -22,7 +22,7 @@
 					<div class="botoes">
 						<button class="submit" (click)="Login()">Fazer Login</button>
 						<!-- se login falhar aparece "Usuário ou senha incorretos, tente novamente!" -->
-						<a routerLink="/autocadastro" title=""><button class="submit">Cadastre-se</button></a>
+						<a *ngIf="isLoggedIn() === 0" (click)="Autocadastro()" title=""><button class="submit">Cadastre-se</button></a>
 					</div>
 				</form>
 			</div>
