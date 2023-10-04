@@ -42,9 +42,10 @@ export class OrderService {
     return this.listOrder.some(order => order.status === 'Em Aberto');
   }
   
-  getOrderById(id: number): Order | undefined {
-  return this.listOrder.find(order => order.id === id);
-}
+  getOrdersById(id: number): Order[] {
+    return this.listOrder.filter(order => order.id.toString().includes(id.toString()));
+  }
+  
 
 updateOrder(order: Order): void {
   const index = this.listOrder.findIndex(o => o.id === order.id);

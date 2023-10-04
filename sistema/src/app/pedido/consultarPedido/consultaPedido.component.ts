@@ -10,12 +10,15 @@ import { OrderService } from 'src/app/services/order.service';
 export class ConsultaPedidoComponent {
   pedidoNumero: number | undefined;
   pedido: Order | undefined;
+  pedidos: Order[] = [];
+
 
   constructor(private orderService: OrderService) {}
 
   consultarPedido() {
     if (this.pedidoNumero) {
-      this.pedido = this.orderService.getOrderById(this.pedidoNumero);
+      this.pedidos = this.orderService.getOrdersById(this.pedidoNumero);
     }
   }
+  
 }
