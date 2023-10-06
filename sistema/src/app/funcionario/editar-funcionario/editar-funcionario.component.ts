@@ -15,6 +15,7 @@ export class EditarFuncionarioComponent implements OnInit{
   @ViewChild("formEditarFuncionario") formFuncionario!: NgForm;
 
   funcionario: Funcionario = new Funcionario();
+  id : number = 0;
 
   constructor(
     private funcionarioService: FuncionarioService,
@@ -24,24 +25,26 @@ export class EditarFuncionarioComponent implements OnInit{
     ngOnInit(): void {
 
       //acesso ao parametro passado na url
-      let id = +this.route.snapshot.params['id'];
+      this.id = +this.route.snapshot.params['id'];
 
       //obter o funcionario pelo id
-      const func = this.funcionarioService.buscarPorId(id);
+      const func = this.funcionarioService.buscarPorId(this.id);
       if(func !== undefined){
         this.funcionario = func;
       } else {
-        throw new Error("Funcionário não encontrado: id = " + id);
+        throw new Error("Funcionário não encontrado: id = " + this.id);
       }
 
     }
 
     atualizar(): void {
       
+      this.funcionarioService.remover(this.id);
+      
       //verifica se form é válido
       if(this.formFuncionario.form.valid){
         //atualiza funcionario
-        this.funcionarioService.atualizar(this.funcionario);
+        this.funcionarioService.inserir(this.funcionario);
         //redireciona
         this.router.navigate(['funcionarios/listar']);
       }
