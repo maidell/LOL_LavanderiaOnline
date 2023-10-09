@@ -31,17 +31,21 @@ export class NovoPedidoComponent {
   private orderNumberCounter: number = 1;
 
   calculateValue(): void {
-    this.value = this.clothesList.reduce((sum, item) => sum + (item.quantity * item.price), 0);
+    this.value = this.clothesList.reduce((sum, item) => sum + (item.quantity! * item.price), 0);
   }
 
   calculateTime(): void {
     let short = this.clothesList[0].time;
     for (const element of this.clothesList) {
-      short = element.time < short && element.quantity > 0 ? element.time : short;
+      short = element.time < short && element.quantity! > 0 ? element.time : short;
     }
     this.time = short;
   }
 
+  isOrderValid(): boolean {
+    return this.clothesList.some(item => item.quantity !== undefined && item.quantity > 0);
+  }
+  
 
   generateOrder(): void {
     this.calculateTime();
@@ -59,7 +63,7 @@ export class NovoPedidoComponent {
   insertClothes(order: Order): void {
     console.log(order);
     for (let clothing of this.clothesList) {
-      if (clothing.quantity > 0) {
+      if (clothing.quantity! > 0) {
         let copyClothing = { ...clothing };
         order.addClothing(copyClothing);
       }
