@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import * as CryptoJS from 'crypto-js';
-import { User } from '../models';
+import { User, Login } from '../models';
 
 const USERS_KEY = 'current_user';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class LoginService {
   private users: User[] = [];
 
 

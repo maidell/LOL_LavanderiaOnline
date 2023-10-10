@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { Component } from '@angular/core';
-import { AuthService } from 'src/app/services/auth.service';
+import { LoginService } from 'src/app/services/login.service';
 import { OrderService } from '../services';
 @Component({
   selector: 'app-login',
@@ -14,13 +14,13 @@ export class LoginComponent {
   public email: string = '';
   loginError: boolean = false;
 
-  constructor(private authService: AuthService, private router: Router, private orderService: OrderService) { }
+  constructor(private loginService: LoginService, private router: Router, private orderService: OrderService) { }
 
   togglePasswordVisibility() {
     this.passwordVisible = !this.passwordVisible;
   }
   Login(): void {
-    this.authService.login(this.email, this.password).subscribe(usuario => {
+    this.loginService.login(this.email, this.password).subscribe(usuario => {
       if (usuario) {
         console.log('Login bem-sucedido', usuario);
         this.loginError = false;
@@ -38,6 +38,6 @@ export class LoginComponent {
     this.router.navigate(['/autocadastro']);
   }
   isLoggedIn(): number {
-    return this.authService.isLoggedIn();
+    return this.loginService.isLoggedIn();
   }
 }

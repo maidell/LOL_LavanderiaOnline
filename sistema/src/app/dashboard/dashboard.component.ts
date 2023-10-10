@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderService } from 'src/app/services/order.service';
-import { AuthService } from 'src/app/services/auth.service';
+import { LoginService } from 'src/app/services/login.service';
 import { Order } from '../models';
 
 @Component({
@@ -13,11 +13,11 @@ export class DashboardComponent implements OnInit {
   listOpenOrder: Order[] = [];
   isEmployee: boolean = false;
 
-  constructor(public orderService: OrderService, private authService: AuthService) { }
+  constructor(public orderService: OrderService, private loginService: LoginService) { }
 
   ngOnInit(): void {
     this.listOrder = this.orderService.listOrder;
-    this.isEmployee = !!this.authService.isEmployee();
+    this.isEmployee = !!this.loginService.isEmployee();
 
     this.listOpenOrder = this.listOrder.filter(order => order.status === 'Em Aberto');
   }

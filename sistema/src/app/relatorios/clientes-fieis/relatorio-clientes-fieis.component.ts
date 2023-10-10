@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/services/auth.service';
+import { LoginService } from 'src/app/services/login.service';
 import { OrderService } from 'src/app/services/order.service';
 import { jsPDF } from 'jspdf';
 import 'jspdf-autotable';
@@ -12,10 +12,10 @@ import 'jspdf-autotable';
 export class RelatorioClientesFieisComponent implements OnInit {
     clientesFieis: any[] = [];
 
-    constructor(private authService: AuthService, private orderService: OrderService) { }
+    constructor(private loginService: LoginService, private orderService: OrderService) { }
 
     ngOnInit(): void {
-        const clientes = this.authService.getUsersByRole('cliente');
+        const clientes = this.loginService.getUsersByRole('cliente');
         const pedidos = [
             { clientId: 3, value: 500 },
             { clientId: 4, value: 800 },

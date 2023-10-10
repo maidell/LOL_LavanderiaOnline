@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Order } from 'src/app/models/order.model';
 import { OrderService } from 'src/app/services/order.service';
-import { AuthService } from 'src/app/services/auth.service';
+import { LoginService } from 'src/app/services/login.service';
 @Component({
   selector: 'app-listar-pedido',
   templateUrl: './listarPedido.component.html',
   styleUrls: ['./listarPedido.component.scss']
 })
 export class ListarPedidoComponent implements OnInit {
-  constructor(public orderService: OrderService, private authService: AuthService) { }
+  constructor(public orderService: OrderService, private loginService: LoginService) { }
 
   listOrder: Order[] = this.orderService.listOrder;
   isEmployee: boolean = false;
@@ -20,7 +20,7 @@ export class ListarPedidoComponent implements OnInit {
       const dateB = new Date(b.openDate);
       return dateB.getTime() - dateA.getTime();
     });
-    this.isEmployee = !!this.authService.isEmployee();
+    this.isEmployee = !!this.loginService.isEmployee();
   }
 
   confirmarRecolhimento(order: Order): void {

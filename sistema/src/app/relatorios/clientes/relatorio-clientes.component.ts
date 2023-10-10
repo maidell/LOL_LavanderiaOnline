@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { jsPDF } from 'jspdf';
 import 'jspdf-autotable';
 import { User } from 'src/app/models';
-import { AuthService } from 'src/app/services';
+import { LoginService } from 'src/app/services';
 
 @Component({
     selector: 'app-relatorio-clientes',
@@ -12,10 +12,10 @@ import { AuthService } from 'src/app/services';
 export class RelatorioClientesComponent implements OnInit {
     clientes: User[] = [];
 
-    constructor(private authService: AuthService) { }
+    constructor(private loginService: LoginService) { }
 
     ngOnInit(): void {
-        this.clientes = this.authService.getUsersByRole('cliente');
+        this.clientes = this.loginService.getUsersByRole('cliente');
     }
 
     generatePDF() {

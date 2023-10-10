@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from './services';
+import { LoginService } from './services';
 
 @Component({
   selector: 'app-root',
@@ -8,11 +8,11 @@ import { AuthService } from './services';
 })
 export class AppComponent {
   title = 'sistema';
-  constructor(private authService: AuthService) {
+  constructor(private loginService: LoginService) {
     //this
   }
   isLoggedIn(): number {
-    return this.authService.isLoggedIn();
+    return this.loginService.isLoggedIn();
   }
 
   

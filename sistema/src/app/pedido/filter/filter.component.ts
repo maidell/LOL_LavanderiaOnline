@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Order } from 'src/app/models';
-import { AuthService, OrderService } from 'src/app/services';
+import { LoginService, OrderService } from 'src/app/services';
 
 @Component({
   selector: 'app-filter',
@@ -8,11 +8,11 @@ import { AuthService, OrderService } from 'src/app/services';
   styleUrls: ['./filter.component.scss']
 })
 export class FilterComponent {
-  constructor(public orderService: OrderService, private authService: AuthService) { }
+  constructor(public orderService: OrderService, private loginService: LoginService) { }
   ngOnInit(): void {
 
     this.listOrder = this.orderService.listOrder;
-    this.isEmployee = !!this.authService.isEmployee();
+    this.isEmployee = !!this.loginService.isEmployee();
 
   }
   selectedOrderStatus: string = '';

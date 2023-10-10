@@ -12,11 +12,12 @@ import { FormsModule } from '@angular/forms';
 
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
-import { AuthService } from './services';
+import { LoginService } from './services';
 import * as Funcionario from './funcionario';
 import { RelatoriosComponent } from './relatorios/relatorios.component';
 import { RelatorioReceitasComponent } from './relatorios/receitas';
 import { DashboardComponent } from './dashboard';
+import { AuthModule } from './auth/auth.module';
 
 
 
@@ -57,7 +58,8 @@ import { DashboardComponent } from './dashboard';
     AppRoutingModule,
     BrowserModule,
     FormsModule,
-    NgxPrintModule
+    NgxPrintModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]

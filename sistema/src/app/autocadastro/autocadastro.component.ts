@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../services';
+import { LoginService } from '../services';
 
 @Component({
   selector: 'app-autocadastro',
@@ -7,8 +7,8 @@ import { AuthService } from '../services';
   styleUrls: ['./autocadastro.component.scss']
 })
 export class AutocadastroComponent {
-  constructor(private authService: AuthService) { }
+  constructor(private loginService: LoginService) { }
   isLogged(): number {
-    return this.authService.isLoggedIn();
+    return this.loginService.isLoggedIn();
   }
 }
