@@ -1,7 +1,7 @@
-export interface Clothing {
+export interface Roupas {
     name: string;
     price: number;
-    quantity: number;
+    quantity?: number;
     time: number;
   }
   

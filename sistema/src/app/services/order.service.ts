@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Clothing } from '../models/clothing.model';
+import { Roupas } from '../models/roupas.model';
 import { Order } from '../models/order.model';
 import { LocalStorageService } from './LocalStorageService';
 

@@ -8,11 +8,11 @@
             <form (submit)="generateOrder()" class="order-form">
                 <h2>Defina a Quantidade de Roupas:</h2>
                 <ul class="list-group clothes-list">
-                    <li *ngFor="let clothing of clothesList" class="list-group-item">
-                        <label for="{{ clothing.name }}">{{ clothing.name }} - R${{ clothing.price
+                    <li *ngFor="let roupas of listaDeRoupas" class="list-group-item">
+                        <label for="{{ roupas.name }}">{{ roupas.name }} - R${{ roupas.price
                             }}</label>
-                        <input name="amount" type="number" id="{{ clothing.name }}"
-                            class="form-control clothes-quantity" [(ngModel)]="clothing.quantity" min="0">
+                        <input name="amount" type="number" id="{{ roupas.name }}"
+                            class="form-control clothes-quantity" [(ngModel)]="roupas.quantity" min="0">
                     </li>
                 </ul>
                 <button class="btn btn-success mt-3" (click)="generateOrder()" [disabled]="!isOrderValid()">Enviar Pedido</button>

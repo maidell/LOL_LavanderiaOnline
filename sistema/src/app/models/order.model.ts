@@ -1,4 +1,4 @@
-import { Clothing } from "./clothing.model";
+import { Roupas } from "./roupas.model";
 
 export class Order {
     id: number = 0;
@@ -7,7 +7,7 @@ export class Order {
     value: number = 0;
     closeDate: Date = new Date();
     openDate: Date = new Date();
-    clothings: Clothing[] = [];
+    roupass: Roupas[] = [];
 
     constructor(time: number, value: number) {
         this.id = Math.floor(Math.random() * 1000) + 1;
@@ -15,8 +15,8 @@ export class Order {
         this.value = value;
 
     }
-    addClothing(clothing: Clothing) {
-        this.clothings.push(clothing);
+    addRoupas(roupas: Roupas) {
+        this.roupass.push(roupas);
     }
     setStatusOrder(status: string) {
         this.status = status;

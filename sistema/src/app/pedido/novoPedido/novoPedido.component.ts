@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Clothing } from 'src/app/models/clothing.model';
+import { Roupas } from 'src/app/models/roupa.model';
 import { Order } from 'src/app/models/order.model';
 import { OrderService } from 'src/app/services/order.service';
 
@@ -11,7 +11,7 @@ import { OrderService } from 'src/app/services/order.service';
 })
 
 export class NovoPedidoComponent {
-  clothesList: Clothing[] = [
+  listaDeRoupas: Roupas[] = [
     { name: 'Camisa', price: 20, quantity: 0, time: 30 },
     { name: 'Calça', price: 20, quantity: 0, time: 40 },
     { name: 'Calça Jeans', price: 25, quantity: 0, time: 50 },
@@ -31,19 +31,19 @@ export class NovoPedidoComponent {
   private orderNumberCounter: number = 1;
 
   calculateValue(): void {
-    this.value = this.clothesList.reduce((sum, item) => sum + (item.quantity! * item.price), 0);
+    this.value = this.listaDeRoupas.reduce((sum, item) => sum + (item.quantity! * item.price), 0);
   }
 
   calculateTime(): void {
-    let short = this.clothesList[0].time;
-    for (const element of this.clothesList) {
+    let short = this.listaDeRoupas[0].time;
+    for (const element of this.listaDeRoupas) {
       short = element.time < short && element.quantity! > 0 ? element.time : short;
     }
     this.time = short;
   }
 
   isOrderValid(): boolean {
-    return this.clothesList.some(item => item.quantity !== undefined && item.quantity > 0);
+    return this.listaDeRoupas.some(item => item.quantity !== undefined && item.quantity > 0);
   }
   
 
@@ -62,10 +62,10 @@ export class NovoPedidoComponent {
 
   insertClothes(order: Order): void {
     console.log(order);
-    for (let clothing of this.clothesList) {
-      if (clothing.quantity! > 0) {
-        let copyClothing = { ...clothing };
-        order.addClothing(copyClothing);
+    for (let roupas of this.listaDeRoupas) {
+      if (roupas.quantity! > 0) {
+        let copyRoupas = { ...roupas };
+        order.addRoupas(copyRoupas);
       }
     }
     console.log(order);
@@ -76,7 +76,7 @@ export class NovoPedidoComponent {
     this.orderService.addOrder(this.newOrder);
     alert(`Orçamento Aprovado!\nNúmero de Pedido: ${this.newOrder.id}`);
     
-    this.clothesList.forEach(item => item.quantity = 0);
+    this.listaDeRoupas.forEach(item => item.quantity = 0);
     this.value = 0;
     this.time = 0;
     this.showOrcamento = false;
@@ -87,7 +87,7 @@ export class NovoPedidoComponent {
     this.newOrder.status = 'Rejeitado';
     this.orderService.addOrder(this.newOrder);
     alert(`Orçamento Rejeitado!\nNúmero de Pedido: ${this.newOrder.id}`);
-    this.clothesList.forEach(item => item.quantity = 0);
+    this.listaDeRoupas.forEach(item => item.quantity = 0);
     this.value = 0;
     this.time = 0;
     this.showOrcamento = false;
