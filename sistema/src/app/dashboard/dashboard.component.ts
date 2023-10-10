@@ -35,7 +35,10 @@ export class DashboardComponent implements OnInit {
   }
 
   getOpenOrdersForCustomer(): Order[] {
-    return this.listOpenOrder;
+    
+      return this.listOrder.filter(order => order.status === 'Em Aberto');
+    
+    
   }
 
   pagarPedido(order: Order): void {

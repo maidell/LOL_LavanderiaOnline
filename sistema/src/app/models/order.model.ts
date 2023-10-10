@@ -1,4 +1,5 @@
-import { Roupas } from "./roupas.model";
+import { Roupas } from "./roupa.model";
+
 
 export class Order {
     id: number = 0;
