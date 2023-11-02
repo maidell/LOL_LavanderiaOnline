@@ -21,4 +21,6 @@ export class NavbarComponent implements OnInit {
     this.authService.logout();
   }
 
+  img: string = 'sistema/src/favicon.ico';
+
 }
