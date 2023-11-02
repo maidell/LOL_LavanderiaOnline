@@ -2,10 +2,13 @@ import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { OrderService } from '../services';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { AutocadastroComponent } from '../autocadastro/autocadastro.component';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
 
@@ -14,7 +17,7 @@ export class LoginComponent {
   public email: string = '';
   loginError: boolean = false;
 
-  constructor(private authService: AuthService, private router: Router, private orderService: OrderService) { }
+  constructor(public dialog: MatDialog, private authService: AuthService, private router: Router, private orderService: OrderService) { }
 
   togglePasswordVisibility() {
     this.passwordVisible = !this.passwordVisible;
@@ -40,4 +43,12 @@ export class LoginComponent {
   isLoggedIn(): number {
     return this.authService.isLoggedIn();
   }
+  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+    this.dialog.open(AutocadastroComponent, {
+      width: '600px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
+  }
 }
+

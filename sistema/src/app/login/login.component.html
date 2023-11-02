@@ -30,7 +30,8 @@
 					<div class="botoes">
 						<button class="submit" (click)="Login()">Fazer Login</button>
 						<!-- se login falhar aparece "Usuário ou senha incorretos, tente novamente!" -->
-						<a *ngIf="isLoggedIn() === 0" (click)="Autocadastro()" title=""><button class="submit">Cadastre-se</button></a>
+						<button (click)="openDialog('0ms', '0ms')" class="submit">Cadastre-se</button>
+
 					</div>
 				</form>
 			</div>

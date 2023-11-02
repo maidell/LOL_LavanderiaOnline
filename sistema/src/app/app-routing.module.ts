@@ -16,15 +16,19 @@ import { DashboardComponent } from './dashboard';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent,
+children: [
   { path: 'autocadastro', component: AutocadastroComponent },
+
+] },
+  
   { path: 'navbar', component: NavbarComponent },
   { path: 'novo-pedido', component: Pedido.NovoPedidoComponent },
   { path: 'listar-pedido', component: Pedido.ListarPedidoComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'consulta-pedido', component: Pedido.ConsultaPedidoComponent },
-  
+
 
   {
     path: 'relatorios', component: RelatoriosComponent,
