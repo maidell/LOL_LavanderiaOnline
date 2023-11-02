@@ -1,0 +1,45 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOL Lavanderia Online</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+
+
+<div class="col-md-9">
+    <div class="row">
+        <div class="col-md-6">
+            <form (submit)="generateOrder()" class="order-form">
+                <h2>Defina a Quantidade de Roupas:</h2>
+                <ul class="list-group clothes-list">
+                    <li *ngFor="let clothing of clothesList" class="list-group-item">
+                        <label for="{{ clothing.name }}">{{ clothing.name }} - R${{ clothing.price
+                            }}</label>
+                        <input name="amount" type="number" id="{{ clothing.name }}"
+                            class="form-control clothes-quantity" [(ngModel)]="clothing.quantity" min="0">
+                    </li>
+                </ul>
+                <button class="btn btn-success mt-3" (click)="generateOrder()">Enviar Pedido</button>
+
+            </form>
+        </div>
+        <div class="col-md-6">
+            <section *ngIf="showOrcamento" class="mt-3">
+                <div class="card">
+                    <div class="card-header bg-info text-white">
+                        <h2 class="mb-0">Orçamento</h2>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Valor Total: R$ {{ value }},00</p>
+                        <p class="card-text">Prazo de Entrega: {{ time }} minutos</p>
+                        <button class="btn btn-success" (click)="sendOrder()">Aprovar Orçamento</button>
+                        <button class="btn btn-danger ml-2" (click)="declineOrder()">Recusar Orçamento</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </div>
+</div>

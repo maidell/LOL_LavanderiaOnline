@@ -1,8 +1,5 @@
-<header class="bg-dark text-white text-center py-4">
-  <h1>Meus Pedidos</h1>
-</header>
-<div>
-</div>
+
+
 
 <app-filter></app-filter>
 
@@ -17,12 +14,15 @@
           'background-yellow': order.status === 'Em Aberto'
         }">
        <ng-container *ngIf="isEmployee; else customerLinks">
+        <header class="bg-dark text-white text-center py-4">
+          <h1>Meus Pedidos</h1>
+        </header>
   <div class="row">
     <h2 class="col-md-3">Pedido {{ order.id }}</h2>
     <button *ngIf="order.status === 'Em Aberto'" class="col col-lg-2 btn btn-warning" (click)="confirmarRecolhimento(order)">Confirmar Recolhimento</button>
     <button *ngIf="order.status === 'Recolhido'" class="col col-lg-2 btn btn-success" (click)="confirmarLavagem(order)">Confirmar Lavagem</button>
     <button *ngIf="order.status === 'Pago'" class="col col-lg-2 btn btn-primary" (click)="finalizarPedido(order)">Finalizar Pedido</button>
-  
+
 
             </div>
             <table class="table table-striped">
@@ -57,16 +57,19 @@
                 </tr>
               </tbody>
             </table>
-          
+
         </ng-container>
 
       <ng-template #customerLinks>
+        <header class="bg-dark text-white text-center py-4">
+          <h1>Pedidos</h1>
+        </header>
         <div class="container mt-4 flex-grow-1">
           <div class="row">
             <h2 class="col-md-7">Pedido {{ order.id }}</h2>
             <button *ngIf="order.status === 'Em Aberto'" class="col col-lg-2 btn btn-warning"
               (click)="pagarPedido(order)">Pagar Pedido</button>
-              <button *ngIf="order.status === 'Aguardando pagamento'" class="col col-lg-2 btn btn-success" 
+              <button *ngIf="order.status === 'Aguardando pagamento'" class="col col-lg-2 btn btn-success"
               (click)="pagarPedido(order)">Pagar Pedido</button>
             <button *ngIf="order.status === 'Em Aberto'" class="col col-lg-2 btn btn-danger ml-2"
               (click)="cancelarPedido(order)">Cancelar Pedido</button>
