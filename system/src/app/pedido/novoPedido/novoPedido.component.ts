@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Clothing } from 'src/app/models/clothing.model';
+import { Roupa } from 'src/app/models/roupa.model';
 import { Order } from 'src/app/models/order.model';
 import { OrderService } from 'src/app/services/order.service';
 import { TitleService } from 'src/app/services/title.service';
@@ -12,7 +12,7 @@ import { TitleService } from 'src/app/services/title.service';
 })
 
 export class NovoPedidoComponent implements OnInit{
-  clothesList: Clothing[] = [
+  clothesList: Roupa[] = [
     { name: 'Camisa', price: 20, quantity: 0, time: 30 },
     { name: 'Calça', price: 20, quantity: 0, time: 40 },
     { name: 'Calça Jeans', price: 25, quantity: 0, time: 50 },
@@ -61,10 +61,10 @@ export class NovoPedidoComponent implements OnInit{
 
   insertClothes(order: Order): void {
     console.log(order);
-    for (let clothing of this.clothesList) {
-      if (clothing.quantity > 0) {
-        let copyClothing = { ...clothing };
-        order.addClothing(copyClothing);
+    for (let roupa of this.clothesList) {
+      if (roupa.quantity > 0) {
+        let copyClothing = { ...roupa };
+        order.addRoupa(copyClothing);
       }
     }
     console.log(order);

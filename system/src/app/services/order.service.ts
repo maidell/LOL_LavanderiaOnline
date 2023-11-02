@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Clothing } from '../models/clothing.model';
+import { Roupa } from '../models/roupa.model';
 import { Order } from '../models/order.model';
 import { LocalStorageService } from './LocalStorageService';
 
@@ -8,14 +8,14 @@ import { LocalStorageService } from './LocalStorageService';
   providedIn: 'root'
 })
 export class OrderService {
-  
 
-  
+
+
 
   listOrder: Order[] = [];
 
   constructor(
-    
+
     private localStorageService: LocalStorageService
   ) {
     this.listOrder = this.localStorageService.getOrders();
@@ -25,10 +25,10 @@ export class OrderService {
     return new Order(time, value)
   }
 
-  
-  
-  
-  
+
+
+
+
   addOrder(order: Order): void {
     this.listOrder.push(order);
     this.localStorageService.saveOrders(this.listOrder);
@@ -41,11 +41,11 @@ export class OrderService {
   hasPendingOrders(): boolean {
     return this.listOrder.some(order => order.status === 'Em Aberto');
   }
-  
+
   getOrdersById(id: number): Order[] {
     return this.listOrder.filter(order => order.id.toString().includes(id.toString()));
   }
-  
+
 
 updateOrder(order: Order): void {
   const index = this.listOrder.findIndex(o => o.id === order.id);
@@ -55,6 +55,6 @@ updateOrder(order: Order): void {
   }
 }
 
-  
+
 }
 
