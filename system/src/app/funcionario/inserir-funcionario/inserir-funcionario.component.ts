@@ -22,7 +22,7 @@ export class InserirFuncionarioComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-    this.titleService.setTitle('Dashboard');
+    this.titleService.setTitle('Inserir novo funcionario');
 
     this.funcionario = new Funcionario();
   }

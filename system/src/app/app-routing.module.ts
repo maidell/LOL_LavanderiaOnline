@@ -20,10 +20,12 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'autocadastro', component: AutocadastroComponent },
   { path: 'navbar', component: NavbarComponent },
-  { path: 'novopedido', component: Pedido.NovoPedidoComponent },
-  { path: 'listarpedido', component: Pedido.ListarPedidoComponent },
+  { path: 'novo-pedido', component: Pedido.NovoPedidoComponent },
+  { path: 'listar-pedido', component: Pedido.ListarPedidoComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'consultapedido', component: Pedido.ConsultaPedidoComponent },
+  { path: 'consulta-pedido', component: Pedido.ConsultaPedidoComponent },
+  
+
   {
     path: 'relatorios', component: RelatoriosComponent,
     children: [
@@ -32,11 +34,12 @@ const routes: Routes = [
       { path: 'relatorio-clientesfieis', component: RelatorioClientesFieisComponent },
     ]
   },
-
+  { path: 'funcionarios', component: Funcionario.ListarFuncionarioComponent },
   { path: 'funcionarios/listar', component: Funcionario.ListarFuncionarioComponent },
   { path: 'funcionarios/editar/:id', component: Funcionario.EditarFuncionarioComponent },
   { path: 'funcionarios/novo', component: Funcionario.InserirFuncionarioComponent },
 
+  { path: 'roupas', component: Roupas.ListarRoupaComponent},
   { path: 'roupas/listar', component: Roupas.ListarRoupaComponent },
   { path: 'roupas/editar/:id', component: Roupas.EditarRoupaComponent },
   { path: 'roupas/novo', component: Roupas.InserirRoupaComponent },

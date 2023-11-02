@@ -2,17 +2,14 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from "@angular/router";
 import { NgxPrintModule } from 'ngx-print';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AutocadastroComponent } from './autocadastro/autocadastro.component';
 import { LoginComponent } from './login/login.component';
 import * as Pedido from './pedido';
 import { FormsModule } from '@angular/forms';
-
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
-import { AuthService } from './services';
 import * as Funcionario from './funcionario';
 import { RelatoriosComponent } from './relatorios/relatorios.component';
 import { RelatorioReceitasComponent } from './relatorios/receitas';
@@ -27,8 +24,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
-
-
+import { MaterialModule } from './material/material.module';
 
 @NgModule({
   declarations: [
@@ -48,25 +44,10 @@ import { MatMenuModule } from '@angular/material/menu';
     RelatoriosComponent,
     RelatorioReceitasComponent,
     MainComponent,
-
-
-
   ],
 
   imports: [
-    RouterModule.forRoot([
-      { path: '', redirectTo: '/login', pathMatch: 'full' },
-      { path: 'navbar', component: NavbarComponent },
-      { path: 'login', component: LoginComponent },
-      { path: 'autocadastro', component: AutocadastroComponent },
-      { path: 'novo-pedido', component: Pedido.NovoPedidoComponent },
-      { path: 'listar-pedido', component: Pedido.ListarPedidoComponent },
-      { path: 'consulta-pedido', component: Pedido.ConsultaPedidoComponent },
-      { path: 'dashboard', component: DashboardComponent },
-      { path: 'relatorios', component: RelatoriosComponent }
-
-
-    ]),
+    RouterModule,
     AppRoutingModule,
     BrowserModule,
     FormsModule,
@@ -79,7 +60,8 @@ import { MatMenuModule } from '@angular/material/menu';
     MatListModule,
     MatGridListModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
