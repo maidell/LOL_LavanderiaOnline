@@ -1,6 +1,9 @@
-export interface Roupa {
-    name: string;
-    price: number;
-    quantity: number;
-    time: number;
-  }
+export class Roupa {
+    constructor(
+        public id?: number,
+        public name?: string,
+        public price?: number,
+        public quantity?: number,
+        public time?: number
+    ) {}
+}
