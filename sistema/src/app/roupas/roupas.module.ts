@@ -5,7 +5,7 @@ import { ListarRoupaComponent } from './listar-roupa/listar-roupa.component';
 import { EditarRoupaComponent } from './editar-roupa/editar-roupa.component';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +17,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class RoupasModule { }

@@ -25,7 +25,8 @@
             <td>{{roupa.time}}</td>
             <td>R$ {{roupa.price | number:'1.2-2'}}</td>
             <td class="text-center" style="width: 345px">
-                <a [routerLink]="['/roupas/novo']" href="#" title="Editar" alt="Editar" class="btn btn-xs btn-info">
+                <a routerLink="/roupas/editar/{{ roupa.id }}" href="#" title="Editar" alt="Editar"
+                    class="btn btn-xs btn-info">
                     <i class="fa fa-edit" aria-hidden="true"></i> Editar
                 </a>
                 <a href="#" title="Remover" alt="Remover" class="btn btn-xs btn-danger"
