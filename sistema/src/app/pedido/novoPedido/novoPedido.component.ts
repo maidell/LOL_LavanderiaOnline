@@ -3,13 +3,11 @@ import { Roupa } from 'src/app/models/roupa.model';
 import { Order } from 'src/app/models/order.model';
 import { OrderService } from 'src/app/services/order.service';
 
-
 @Component({
   selector: 'app-novo-pedido',
   templateUrl: './novoPedido.component.html',
   styleUrls: ['./novoPedido.component.scss']
 })
-
 export class NovoPedidoComponent {
   listaDeRoupas: Roupa[] = [
     { name: 'Camisa', price: 20, quantity: 0, time: 30 },
@@ -31,21 +29,24 @@ export class NovoPedidoComponent {
   private orderNumberCounter: number = 1;
 
   calculateValue(): void {
-    this.value = this.listaDeRoupas.reduce((sum, item) => sum + (item.quantity! * item.price), 0);
+    this.value = this.listaDeRoupas.reduce((sum, item) => sum + ((item.quantity ?? 0) * (item.price ?? 0)), 0);
   }
 
-  calculateTime(): void {
-    let short = this.listaDeRoupas[0].time;
+calculateTime(): void {
+  if (this.listaDeRoupas.length > 0) {
+    let short = this.listaDeRoupas[0].time ?? 0;
     for (const element of this.listaDeRoupas) {
-      short = element.time < short && element.quantity! > 0 ? element.time : short;
+      if (element.time !== undefined && element.quantity! > 0) {
+        short = Math.min(element.time, short);
+      }
     }
     this.time = short;
   }
+}
 
   isOrderValid(): boolean {
     return this.listaDeRoupas.some(item => item.quantity !== undefined && item.quantity > 0);
   }
-
 
   generateOrder(): void {
     this.calculateTime();
@@ -62,7 +63,7 @@ export class NovoPedidoComponent {
 
   insertClothes(order: Order): void {
     console.log(order);
-    for (let roupas of this.listaDeRoupas) {
+    for (const roupas of this.listaDeRoupas) {
       if (roupas.quantity! > 0) {
         let copyRoupas = { ...roupas };
         order.addRoupas(copyRoupas);
@@ -92,5 +93,4 @@ export class NovoPedidoComponent {
     this.time = 0;
     this.showOrcamento = false;
   }
-
 }

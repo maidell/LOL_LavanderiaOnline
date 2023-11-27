@@ -1,31 +1,49 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+
+import { Observable } from 'rxjs';
 import { Roupa } from '../models/roupa.model';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
+
 export class RoupaService {
-  private roupas: Roupa[] = [];
 
-  constructor() {}
+  BASE_URL = "http://localhost:3000/roupas/";
 
-  adicionarRoupa(roupa: Roupa): void {
-    this.roupas.push(roupa);
-  }
+  httpOptions = {
+    headers: new HttpHeaders({
+      "Content-Type": 'application/json'
+    })
+  };
+
+  constructor(private httpClient: HttpClient) { }
 
   listarRoupas(): Observable<Roupa[]> {
-    return of(this.roupas);
+    return this.httpClient.get<Roupa[]>(this.BASE_URL, this.httpOptions);
   }
 
-  atualizarRoupa(roupa: Roupa): void {
-    const index = this.roupas.findIndex((r) => r.name === roupa.name);
-    if (index !== -1) {
-      this.roupas[index] = roupa;
-    }
+  removerRoupa(id: number): Observable<Roupa> {
+    return this.httpClient.delete<Roupa>(this.BASE_URL + id,
+      this.httpOptions);
   }
 
-  removerRoupa(name: string): void {
-    this.roupas = this.roupas.filter((r) => r.name !== name);
+  inserirRoupa(roupa: Roupa): Observable<Roupa> {
+    return this.httpClient.post<Roupa>(this.BASE_URL,
+      JSON.stringify(roupa),
+      this.httpOptions);
   }
+
+  buscarPorId(id: number): Observable<Roupa> {
+    return this.httpClient.get<Roupa>(this.BASE_URL + id,
+      this.httpOptions);
+  }
+
+  alterar(roupa: Roupa): Observable<Roupa> {
+    return this.httpClient.put<Roupa>(this.BASE_URL + roupa.id,
+      JSON.stringify(roupa),
+      this.httpOptions);
+  }
+
 }
