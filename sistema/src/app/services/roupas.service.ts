@@ -1,49 +1,73 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Roupa } from '../models/roupa.model';
+
+const LS_CHAVE: string = 'roupas';
 
 @Injectable({
   providedIn: 'root'
 })
-
 export class RoupaService {
 
-  BASE_URL = "http://localhost:3000/roupas/";
+  constructor() { }
 
-  httpOptions = {
-    headers: new HttpHeaders({
-      "Content-Type": 'application/json'
-    })
-  };
-
-  constructor(private httpClient: HttpClient) { }
-
-  listarRoupas(): Observable<Roupa[]> {
-    return this.httpClient.get<Roupa[]>(this.BASE_URL, this.httpOptions);
+  private getRoupasFromLocalStorage(): Roupa[] {
+    const roupas = localStorage.getItem(LS_CHAVE);
+    return roupas ? JSON.parse(roupas) : [];
   }
 
-  removerRoupa(id: number): Observable<Roupa> {
-    return this.httpClient.delete<Roupa>(this.BASE_URL + id,
-      this.httpOptions);
+  private saveRoupasToLocalStorage(roupas: Roupa[]): void {
+    localStorage.setItem(LS_CHAVE, JSON.stringify(roupas));
+  }
+
+  listarRoupas(): Observable<Roupa[]> {
+    const roupas = this.getRoupasFromLocalStorage();
+    return of(roupas);
+  }
+
+  removerRoupa(id: number): Observable<Roupa | null> {
+    let roupas: Roupa[] = this.getRoupasFromLocalStorage();
+
+    const index = roupas.findIndex(roupa => roupa.id === id);
+
+    if (index !== -1) {
+      roupas.splice(index, 1);
+      this.saveRoupasToLocalStorage(roupas);
+      return of(null); // Indica sucesso na remoção
+    } else {
+      return of(null); // Indica que o item não foi encontrado
+    }
   }
 
   inserirRoupa(roupa: Roupa): Observable<Roupa> {
-    return this.httpClient.post<Roupa>(this.BASE_URL,
-      JSON.stringify(roupa),
-      this.httpOptions);
+    let roupas: Roupa[] = this.getRoupasFromLocalStorage();
+
+    // Simula a geração de um ID único (você pode ajustar conforme necessário)
+    roupa.id = new Date().getTime();
+
+    roupas.push(roupa);
+    this.saveRoupasToLocalStorage(roupas);
+
+    return of(roupa);
   }
 
-  buscarPorId(id: number): Observable<Roupa> {
-    return this.httpClient.get<Roupa>(this.BASE_URL + id,
-      this.httpOptions);
+  buscarPorId(id: number): Observable<Roupa | null> {
+    const roupas: Roupa[] = this.getRoupasFromLocalStorage();
+    const roupa = roupas.find(item => item.id === id);
+    return of(roupa || null);
   }
 
-  alterar(roupa: Roupa): Observable<Roupa> {
-    return this.httpClient.put<Roupa>(this.BASE_URL + roupa.id,
-      JSON.stringify(roupa),
-      this.httpOptions);
-  }
+  alterar(roupa: Roupa): Observable<Roupa | null> {
+    let roupas: Roupa[] = this.getRoupasFromLocalStorage();
 
+    const index = roupas.findIndex(item => item.id === roupa.id);
+
+    if (index !== -1) {
+      roupas[index] = roupa;
+      this.saveRoupasToLocalStorage(roupas);
+      return of(roupa);
+    } else {
+      return of(null); // Indica que o item não foi encontrado
+    }
+  }
 }

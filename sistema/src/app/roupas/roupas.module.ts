@@ -4,6 +4,7 @@ import { InserirRoupaComponent } from './inserir-roupa/inserir-roupa.component';
 import { ListarRoupaComponent } from './listar-roupa/listar-roupa.component';
 import { EditarRoupaComponent } from './editar-roupa/editar-roupa.component';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -15,7 +16,8 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ]
 })
 export class RoupasModule { }
